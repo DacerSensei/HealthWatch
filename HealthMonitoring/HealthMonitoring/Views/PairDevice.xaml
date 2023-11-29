@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
+             x:Class="HealthMonitoring.Views.PairDevice" Background="White"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.BindingContext>
+        <ViewModel:PairDeviceViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Orientation="Vertical">
+                <Button Margin="10" Command="{Binding ScanCommand}" Text="{Binding ButtonStateText}" TextColor="White" BackgroundColor="{Binding ButtonStateColor,Mode=OneWay}"/>
+                <CollectionView ItemsSource="{Binding BLEDevicesList}" x:Name="MyList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference MyList}, Path=BindingContext.SelectDeviceCommand}" CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
+                                <Frame Margin="6,2">
+                                    <StackLayout>
+                                        <Label Text="{Binding Name}" TextColor="Black"/>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button Margin="10" Command="{Binding StartRecieveCommand}" Text="START" />
+                <Button Margin="10" Command="{Binding StopRecieveCommand}" Text="STOP" />
+            </StackLayout>
+
+            <ActivityIndicator IsRunning="{Binding IsLoading}" Color="LimeGreen" Scale="0.3" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

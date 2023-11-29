@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthMonitoring.Views.GetStarted"
+             Background="White"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:local="clr-namespace:HealthMonitoring"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+             xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <ViewModel:GetStartedViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*">
+            <Grid.Background>
+                <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#028090" Offset="0.0"/>
+                    <GradientStop Color="#02c39a" Offset=".5"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <StackLayout BackgroundColor="Transparent">
+                <lottie:AnimationView HeightRequest="400" WidthRequest="400" AnimationSource="AssetOrBundle" Animation="GetStarted.json" RepeatMode="Infinite" AutoPlay="True" />
+            </StackLayout>
+            <StackLayout Grid.Row="1" Padding="35,0" Spacing="0">
+                <Label Text="Health Monitoring" FontSize="28" FontFamily="PoppinsBold" TextColor="#f0f3bd" FontAttributes="Bold" Margin="0,0,0,30"/>
+                <Label Text="Manage your health by monitoring your vitals" FontSize="18" FontFamily="PoppinsRegular" TextColor="White"/>
+                <Label Text="seemlessly &amp; intuitively" FontSize="24" FontFamily="PoppinsBold" TextColor="#f0f3bd" FontAttributes="Bold" Margin="0,0,0,30"/>
+
+                <Button Text="Sign in with your email" Command="{Binding LoginCommand}" CornerRadius="10" Margin="5,5" BackgroundColor="White" TextColor="#028090" FontFamily="PoppinsBold"/>
+                <Button Text="Create an account" Command="{Binding RegisterCommand}" CornerRadius="10" Margin="5,5" BorderColor="White" BorderWidth="1" BackgroundColor="Transparent" TextColor="White" FontFamily="PoppinsBold"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

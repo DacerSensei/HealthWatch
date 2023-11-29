@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.wear.widget.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/box_inset_layout_padding"
+    android:background="#000"
+    tools:deviceIds="wear">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/inner_frame_layout_padding"
+        app:boxedEdges="all">
+        <TextView
+            android:id="@+id/WatchTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/WatchTitle"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#FFF"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/Status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Status"
+            android:layout_gravity="center"
+            android:textColor="#fb8500"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/DeviceName"
+            android:layout_marginTop="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#4895ef"
+            android:textSize="16sp" />
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center|bottom"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/myButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/MainButton"
+                android:background="@drawable/button_background"
+                android:textColor="#FFF"
+                android:layout_margin="2sp"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/secondButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/MainButton"
+                android:background="@drawable/button_background"
+                android:textColor="#FFF"
+                android:layout_margin="2sp"
+                android:textSize="8sp" />
+        </LinearLayout>
+    </FrameLayout>
+</androidx.wear.widget.BoxInsetLayout>

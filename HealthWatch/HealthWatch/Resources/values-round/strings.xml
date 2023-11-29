@@ -1,0 +1,7 @@
+<resources>
+	<string name="WatchTitle">Health Monitoring</string>
+	<string name="Status">Connecting</string>
+	<string name="MainButton">Click Me</string>
+	<color name="colorPrimary">#FF00FF</color>
+	<color name="colorPrimaryDark">#000</color>
+</resources>

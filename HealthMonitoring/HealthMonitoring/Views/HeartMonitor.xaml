@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthMonitoring.Views.HeartMonitor"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:local="clr-namespace:HealthMonitoring"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+             xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
+             xmlns:UserManager="clr-namespace:HealthMonitoring.Services"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Background>
+        <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#028090" Offset="0.0"/>
+            <GradientStop Color="#02c39a" Offset=".5"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.BindingContext>
+        <ViewModel:HeartMonitorViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
+            <Label TextColor="White" FontFamily="PoppinsBold" Grid.Row="1" Text="Heart Monitoring" FontSize="Title" HorizontalTextAlignment="Center" />
+            <Frame Padding="0,0,0,10" xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                <Grid RowDefinitions="Auto,Auto,Auto">
+                    <lottie:AnimationView Animation="HeartRate.json" HeightRequest="200" WidthRequest="200" AnimationSource="AssetOrBundle" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                              AutoPlay="True" RepeatMode="Infinite"/>
+                    <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Row="1" FontSize="50" HorizontalTextAlignment="Center" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="{Binding HeartRate}"/>
+                                    <Span Text=" BPM"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Grid>
+            </Frame>
+            <Button Grid.Row="2" Command="{Binding GoBackCommand}" TextColor="White" Background="#d83c3e" Text="Go Back" CornerRadius="4" xct:TouchEffect.NativeAnimation="True" Margin="25,50,25,0" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

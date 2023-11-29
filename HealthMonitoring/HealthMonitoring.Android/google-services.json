@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "928320262772",
+    "firebase_url": "https://healthwatch-f6e17-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "healthwatch-f6e17",
+    "storage_bucket": "healthwatch-f6e17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928320262772:android:f30bc336e86f12bcbff721",
+        "android_client_info": {
+          "package_name": "com.dacer.healthmonitoring"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFA6hO9I08HWRgnkqfVrKb7pIBYJSVl4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

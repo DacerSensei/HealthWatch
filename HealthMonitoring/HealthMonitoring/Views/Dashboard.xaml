@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
+             x:Class="HealthMonitoring.Views.Dashboard"
+             Background="White"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:local="clr-namespace:HealthMonitoring"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+             xmlns:UserManager="clr-namespace:HealthMonitoring.Services"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <ViewModel:DashboardViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *" RowSpacing="0">
+                <Grid BackgroundColor="Black" ColumnDefinitions="Auto, *" RowSpacing="0" Padding="5,0" xct:CornerRadiusEffect.CornerRadius="0,0,10,10">
+                    <lottie:AnimationView Animation="Arrow.json" HeightRequest="75" WidthRequest="75" AnimationSource="AssetOrBundle"
+                                          HorizontalOptions="StartAndExpand" AutoPlay="True" RepeatMode="Infinite"/>
+                    <Label Grid.Column="1" TextColor="#50bfcc" FontFamily="PoppinsBold" Text="SET SOME GOALS!" FontSize="Subtitle" VerticalTextAlignment="Center" />
+                    <Image Grid.Row="1" Source="Goal.png" HeightRequest="50" WidthRequest="50"  Margin="10,-40,10,0"/>
+                    <Label Grid.Row="1" Grid.Column="1" TextColor="white" FontFamily="PoppinsBold" Margin="0,-40,0,0" FontSize="Small" Text="You are 0% done with you goals for the day" VerticalTextAlignment="Center" />
+                </Grid>
+            <ScrollView Grid.Row="1">
+                <StackLayout  Margin="20">
+                    <Frame Padding="0,0,0,10" xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                        <Frame.Background>
+                            <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#ff6773" Offset="0.0"/>
+                                <GradientStop Color="#ff8c71" Offset=".5"/>
+                                </LinearGradientBrush>
+                        </Frame.Background>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HeartRateCommand}" />
+                        </Frame.GestureRecognizers>
+                        <Grid RowDefinitions="Auto,Auto,Auto">
+                            <lottie:AnimationView Animation="HeartButton.json" HeightRequest="200" WidthRequest="200" AnimationSource="AssetOrBundle" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                              AutoPlay="True" RepeatMode="Infinite"/>
+                            <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Row="1" Text="Health Monitoring" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                            <Label TextColor="Black" FontFamily="PoppinsRegular" Grid.Row="2" Text="Let's check your heart" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                        </Grid>
+                    </Frame>
+                    <Frame Padding="0,0,0,10" xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                        <Frame.Background>
+                            <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#6f68d2" Offset="0.0"/>
+                                <GradientStop Color="#9e5ea8" Offset=".5"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer  />
+                        </Frame.GestureRecognizers>
+                        <Grid RowDefinitions="Auto,Auto,Auto">
+                            <lottie:AnimationView Animation="Exercise.json" HeightRequest="200" WidthRequest="200" AnimationSource="AssetOrBundle" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                              AutoPlay="True" RepeatMode="Infinite"/>
+                            <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Row="1" Text="Fitness" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                            <Label TextColor="Black" FontFamily="PoppinsRegular" Grid.Row="2" Text="Let's check your heart" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                        </Grid>
+                    </Frame>
+                    <Frame Padding="0,0,0,10" xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                        <Frame.Background>
+                            <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#1abf32" Offset="0.0"/>
+                                <GradientStop Color="#7ce195" Offset=".5"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer  />
+                        </Frame.GestureRecognizers>
+                        <Grid RowDefinitions="Auto,Auto,Auto">
+                            <lottie:AnimationView Animation="Do.json" HeightRequest="200" WidthRequest="200" AnimationSource="AssetOrBundle" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                              AutoPlay="True" RepeatMode="Infinite"/>
+                            <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Row="1" Text="Do's and Don'ts" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                            <Label TextColor="Black" FontFamily="PoppinsRegular" Grid.Row="2" Text="Let's check your heart" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+            
+        
+    </ContentPage.Content>
+</ContentPage>
