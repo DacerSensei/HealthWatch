@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
+             x:Class="HealthMonitoring.Views.GoalsMonitor"
+             xmlns:UserManager="clr-namespace:HealthMonitoring.Services" 
+             xmlns:local="http://xamarin.com/schemas/2020/toolkit"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <ViewModel:GoalsMonitorViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <local:EventToCommandBehavior EventName="Appearing" Command="{Binding LoadedCommand}" />
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <Grid>
+            <CollectionView ItemsSource="{Binding GoalsList}" x:Name="MyList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <local:Expander>
+                            <Label Text="{Binding Key}"></Label>
+                        </local:Expander>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

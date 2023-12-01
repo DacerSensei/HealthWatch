@@ -23,8 +23,7 @@ namespace HealthMonitoring
             App.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
             InitializeComponent();
             DependencyService.Get<IEnvironment>().SetStatusBarColor(Color.FromHex("#028090"), false);
-            //MainPage = new NavigationPage(new GetStarted());
-            MainPage = new NavigationPage(new PairDevice());
+            MainPage = new NavigationPage(new GetStarted());
         }
 
         protected override void OnStart()

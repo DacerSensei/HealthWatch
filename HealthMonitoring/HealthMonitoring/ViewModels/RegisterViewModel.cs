@@ -1,6 +1,7 @@
 ﻿using Firebase.Auth;
 using Firebase.Database.Query;
 using HealthMonitoring.Config;
+using HealthMonitoring.Models;
 using HealthMonitoring.Services;
 using HealthMonitoring.Views;
 using System;
@@ -84,6 +85,14 @@ namespace HealthMonitoring.ViewModels
                 UserCredential userCredential = await Database.FirebaseAuthClient.CreateUserWithEmailAndPasswordAsync(Email, Password, $"{FirstName} {LastName}");
                 
                 Debug.WriteLine(userCredential.AuthCredential);
+                DataSensor dataSensor = new DataSensor()
+                {
+                    SmartWatchName = "Unknown",
+                    SmartWatchStatus = "Disconnected",
+                    StepSensor = "0",
+                    HeartRateSensor = "0",
+                    Battery = "0",
+                };
                 Models.User user = new Models.User()
                 {
                     Uid = userCredential.User.Uid,
@@ -93,7 +102,8 @@ namespace HealthMonitoring.ViewModels
                     Gender = Gender,
                     Contact = Contact,
                     Height = Height,
-                    Weight = Weight
+                    Weight = Weight,
+                    DataSensors = dataSensor
                 };
                 await Database.FirebaseClient.Child("users").PostAsync(user);
                 await CurrentPage.Navigation.PopModalAsync();

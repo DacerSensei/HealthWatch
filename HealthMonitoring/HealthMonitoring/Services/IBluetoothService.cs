@@ -10,10 +10,11 @@ namespace HealthMonitoring.Services
     {
         void BluetoothInitialize();
         Task<List<BluetoothDevice>> ScanForDevicesAsync();
-        Task ConnectToDevice(BluetoothDevice device);
+        Task<bool> ConnectToDevice(BluetoothDevice device);
         void DisconnectDevice();
         event EventHandler<ProfileState> ConnectionStateChanged;
         event EventHandler<string> CharacteristicValueChanged;
-        void WriteCharacteristic(string Message);
+        Task WriteCharacteristicAsync(string Message);
+        bool IsBluetoothEnabled();
     }
 }

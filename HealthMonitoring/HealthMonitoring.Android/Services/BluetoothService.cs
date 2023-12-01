@@ -68,18 +68,24 @@ namespace HealthMonitoring.Droid.Services
             }
         }
 
-        public async Task ConnectToDevice(BluetoothDevice device)
+        public async Task<bool> ConnectToDevice(BluetoothDevice device)
         {
             if (bluetoothAdapter.GetRemoteDevice(device.Address) == null)
             {
                 System.Diagnostics.Debug.WriteLine("Device not found or cannot be connected, handle accordingly.");
-                return;
+                return false;
             }
-            await Task.Run(() =>
+            try
             {
-                bluetoothGatt = device.ConnectGatt(Application.Context, false, bluetoothGattCallback);
-            });
-            
+                bluetoothGatt = await Task.Run(() => { return device.ConnectGatt(Application.Context, false, bluetoothGattCallback); });
+                return true;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error connecting to device: {ex.Message}");
+                return false;
+            }
+
         }
 
         public void DisconnectDevice()
@@ -107,19 +113,24 @@ namespace HealthMonitoring.Droid.Services
             return scannedDevices;
         }
 
-        public void WriteCharacteristic(string Message)
+        public async Task WriteCharacteristicAsync(string Message)
         {
             var characteristic = bluetoothGatt.GetService(ServiceUuid).GetCharacteristic(CharacteristicUuid);
             if (characteristic != null)
             {
                 byte[] value = Encoding.UTF8.GetBytes(Message);
-                bluetoothGatt.WriteCharacteristic(characteristic, value, (int)GattWriteType.Default);
+                await Task.Run(() => bluetoothGatt.WriteCharacteristic(characteristic, value, (int)GattWriteType.Default));
                 System.Diagnostics.Debug.WriteLine("Write Successfully");
             }
             else
             {
                 System.Diagnostics.Debug.WriteLine("Characteristic is null failed to write");
             }
+        }
+
+        public bool IsBluetoothEnabled()
+        {
+            return bluetoothAdapter.IsEnabled;
         }
 
         public void OnCharacteristicValueChanged(string value)

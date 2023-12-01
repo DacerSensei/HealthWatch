@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace HealthMonitoring.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainMenu : TabbedPage
+    public partial class GoalsMonitor : ContentPage
     {
-        public MainMenu()
+        public GoalsMonitor()
         {
             InitializeComponent();
-        }
-
-        protected override bool OnBackButtonPressed()
-        {
-            return true;
         }
     }
 }

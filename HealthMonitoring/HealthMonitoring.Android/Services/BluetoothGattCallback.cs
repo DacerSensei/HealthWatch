@@ -13,6 +13,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 [assembly: Xamarin.Forms.Dependency(typeof(HealthMonitoring.Droid.Services.BluetoothGattCallback))]
 namespace HealthMonitoring.Droid.Services
@@ -21,6 +23,8 @@ namespace HealthMonitoring.Droid.Services
     {
         private readonly UUID ServiceUuid = UUID.FromString("491ef3e4-be34-4c5d-8d94-45a2eddbb9df");
         private readonly UUID CharacteristicUuid = UUID.FromString("8d68ee2e-5e8a-403e-b60f-c371209162b6");
+
+        private TaskCompletionSource<bool> characteristicWriteCompletionSource;
 
         public BluetoothGattCallback(BluetoothService bluetoothService)
         {
@@ -54,9 +58,10 @@ namespace HealthMonitoring.Droid.Services
             {
                 System.Diagnostics.Debug.WriteLine("Write Successfully");
             }
+            characteristicWriteCompletionSource?.TrySetResult(true);
         }
 
-        public override void OnServicesDiscovered(BluetoothGatt gatt, GattStatus status)
+        public override async void OnServicesDiscovered(BluetoothGatt gatt, GattStatus status)
         {
             base.OnServicesDiscovered(gatt, status);
 
@@ -71,7 +76,15 @@ namespace HealthMonitoring.Droid.Services
                     {
                         gatt.SetCharacteristicNotification(characteristic, true);
                         BluetoothGattDescriptor descriptor = characteristic.GetDescriptor(UUID.FromString("00002902-0000-1000-8000-00805F9B34FB"));
-                        gatt.WriteCharacteristic(characteristic, BluetoothGattDescriptor.EnableNotificationValue.ToArray(), (int)GattWriteType.Default);
+                        try
+                        {
+                            await WriteCharacteristicAsync(gatt, characteristic, BluetoothGattDescriptor.EnableNotificationValue.ToArray(), GattWriteType.Default);
+                            await WriteCharacteristicAsync(gatt, characteristic, Encoding.UTF8.GetBytes("START_HEART_RATE"), GattWriteType.Default);
+                        }
+                        catch (System.Exception ex)
+                        {
+                            Console.WriteLine($"Error during BLE operations: {ex.Message}");
+                        }
                     }
                     else
                     {
@@ -86,6 +99,24 @@ namespace HealthMonitoring.Droid.Services
             else
             {
                 System.Diagnostics.Debug.WriteLine("Service discovery failed, handle accordingly.");
+            }
+        }
+
+        public async Task WriteCharacteristicAsync(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, byte[] value, GattWriteType writeType)
+        {
+            characteristicWriteCompletionSource = new TaskCompletionSource<bool>();
+            try
+            {
+                gatt.WriteCharacteristic(characteristic, value, (int)writeType);
+                await characteristicWriteCompletionSource.Task;
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                characteristicWriteCompletionSource = null;
             }
         }
 

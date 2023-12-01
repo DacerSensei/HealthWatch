@@ -24,11 +24,11 @@
                 <Grid RowDefinitions="Auto,Auto,Auto">
                     <lottie:AnimationView Animation="HeartRate.json" HeightRequest="200" WidthRequest="200" AnimationSource="AssetOrBundle" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
                                               AutoPlay="True" RepeatMode="Infinite"/>
-                    <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Row="1" FontSize="50" HorizontalTextAlignment="Center" >
+                    <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Row="1" FontSize="50" HorizontalTextAlignment="Center"  BindingContext="{Binding Source={x:Static UserManager:UserManager.User}}">
                         <Label.FormattedText>
                             <FormattedString>
                                 <FormattedString.Spans>
-                                    <Span Text="{Binding HeartRate}"/>
+                                    <Span Text="{Binding DataSensors.HeartRateSensor}"/>
                                     <Span Text=" BPM"/>
                                 </FormattedString.Spans>
                             </FormattedString>

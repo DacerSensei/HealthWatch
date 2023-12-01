@@ -11,6 +11,8 @@ namespace HealthMonitoring.Models
     {
         public string Uid { get; set; }
 
+        public string Key { get; set; }
+
         private string contact;
         public string Contact
         {
@@ -97,6 +99,16 @@ namespace HealthMonitoring.Models
             }
         }
 
+        private DataSensor dataSensors;
+        public DataSensor DataSensors
+        {
+            get => dataSensors;
+            set
+            {
+                SetProperty(ref dataSensors, value);
+            }
+        }
+
         public string CompleteName
         {
             get
@@ -117,7 +129,7 @@ namespace HealthMonitoring.Models
         {
             get
             {
-                if(Gender != null)
+                if (Gender != null)
                 {
                     return Gender.ToUpper() == "MALE" ? "#02b0f0" : "#f75b95";
                 }

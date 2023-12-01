@@ -15,27 +15,10 @@ namespace HealthMonitoring.ViewModels
         public HeartMonitorViewModel()
         {
             GoBackCommand = new AsyncCommand(GoBackExecute);
-            bluetoothService.WriteCharacteristic("START_HEART_RATE");
-            bluetoothService.CharacteristicValueChanged += HeartMonitorViewModel_CharacteristicValueChanged;
+            //bluetoothService.WriteCharacteristic("START_HEART_RATE");
         }
 
         IBluetoothService bluetoothService = DependencyService.Get<IBluetoothService>();
-
-        private void HeartMonitorViewModel_CharacteristicValueChanged(object sender, string e)
-        {
-            string find = "HeartRate:";
-            if (e.Contains(find))
-            {
-                HeartRate = e.Substring(find.Length);
-            }
-        }
-
-        private string heartRate;
-        public string HeartRate
-        {
-            get => heartRate;
-            set => SetProperty(ref heartRate, value);
-        }
 
 
         public ICommand GoBackCommand { get; }

@@ -64,7 +64,9 @@ namespace HealthMonitoring.ViewModels
                 UserCredential userCredential = await Database.FirebaseAuthClient.SignInWithEmailAndPasswordAsync(Email, Password);
 
                 IReadOnlyCollection<FirebaseObject<Models.User>> users = await Database.FirebaseClient.Child("users").OnceAsync<Models.User>();
-                Services.UserManager.User = users.Where(user => user.Object.Uid == userCredential.User.Uid).FirstOrDefault().Object;
+                var currentUser = users.Where(user => user.Object.Uid == userCredential.User.Uid).FirstOrDefault();
+                Services.UserManager.User = currentUser.Object;
+                Services.UserManager.User.Key = currentUser.Key;
                 Services.UserManager.User.Email = userCredential.User.Info.Email;
 
                 await Application.Current.MainPage.Navigation.PushAsync(new MainMenu());

@@ -1,13 +1,18 @@
 ﻿using Android.Bluetooth;
 using Android.Content;
+using Firebase.Database.Query;
+using HealthMonitoring.Config;
 using HealthMonitoring.Services;
 using HealthMonitoring.Views;
+using System;
 using System.Threading.Tasks;
 
 using System.Windows.Input;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using System.Diagnostics;
+using static Android.Graphics.BlurMaskFilter;
 
 namespace HealthMonitoring.ViewModels
 {
@@ -18,8 +23,6 @@ namespace HealthMonitoring.ViewModels
             bluetoothService.BluetoothInitialize();
             ScanCommand = new AsyncCommand(ScanExecute);
             SelectDeviceCommand = new Command(SelectDeviceExecute);
-            StartRecieveCommand = new AsyncCommand(StartRecieveExecute);
-            StopRecieveCommand = new Command(StopRecieveExecute);
         }
 
         IBluetoothService bluetoothService = DependencyService.Get<IBluetoothService>();
@@ -29,38 +32,42 @@ namespace HealthMonitoring.ViewModels
         public ICommand StartRecieveCommand { get; }
         public ICommand StopRecieveCommand { get; }
 
-        private void StopRecieveExecute()
-        {
-            //bluetoothService.WriteCharacteristic("STOP_HEART_RATE");
-        }
-
-        private async Task StartRecieveExecute()
-        {
-            await Application.Current.MainPage.Navigation.PushAsync(new HeartMonitor());
-            //bluetoothService.WriteCharacteristic("START_HEART_RATE");
-        }
-
         private async Task ScanExecute()
         {
+
+            if (!bluetoothService.IsBluetoothEnabled())
+            {
+                await ToastManager.ShowToast("Enable your bluetooth to scan for devices", Color.FromHex("FF605C"));
+                return;
+            }
+            if (!DependencyService.Get<IDeviceOrientationService>().IsLocationServiceEnabled())
+            {
+                await ToastManager.ShowToast("Enable your location to scan for devices", Color.FromHex("FF605C"));
+                return;
+            }
             if (!IsConnected)
             {
                 if (!await PermissionsGrantedAsync())
                 {
-                    await Application.Current.MainPage.DisplayAlert("Permission required", "Application needs location permission", "OK");
+                    await ToastManager.ShowToast("Application needs location permission", Color.FromHex("FF605C"));
                     IsLoading = false;
                     return;
                 }
                 BLEDevicesList.Clear();
                 IsLoading = true;
                 var devices = await bluetoothService.ScanForDevicesAsync();
-                for (int i = 0; i < devices.Count; i++)
+                if (devices != null)
                 {
-                    BLEDevicesList.Add(devices[i]);
+                    for (int i = 0; i < devices.Count; i++)
+                    {
+                        BLEDevicesList.Add(devices[i]);
+                    }
                 }
                 IsLoading = false;
             }
             else
             {
+                bluetoothService.CharacteristicValueChanged -= BluetoothService_CharacteristicValueChanged;
                 bluetoothService.DisconnectDevice();
             }
         }
@@ -69,23 +76,60 @@ namespace HealthMonitoring.ViewModels
         {
             BluetoothDevice device = obj as BluetoothDevice;
             IsLoading = true;
-            await bluetoothService.ConnectToDevice(device);
-            BLEDevicesList.Clear();
-            IsLoading = false;
-            bluetoothService.ConnectionStateChanged += BluetoothService_ConnectionStateChanged;
+            if (await bluetoothService.ConnectToDevice(device))
+            {
+                BLEDevicesList.Clear();
+                bluetoothService.ConnectionStateChanged += BluetoothService_ConnectionStateChanged;
+                bluetoothService.CharacteristicValueChanged += BluetoothService_CharacteristicValueChanged;
+                IsLoading = false;
+            }
         }
 
-        private void BluetoothService_ConnectionStateChanged(object sender, ProfileState value)
+        private async void BluetoothService_CharacteristicValueChanged(object sender, string e)
+        {
+            string heartRate = "HeartRate:";
+            if (e.Contains(heartRate))
+            {
+                var value = e.Substring(heartRate.Length);
+                UserManager.User.DataSensors.HeartRateSensor = value;
+                try
+                {
+                    await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/DataSensors").PatchAsync(new { SmartWatchStatus = "Connected" });
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        private async void BluetoothService_ConnectionStateChanged(object sender, ProfileState value)
         {
             if (value == ProfileState.Connected)
             {
                 IsConnected = true;
                 ButtonStateText = "Disconnect";
+                try
+                {
+                    await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/DataSensors").PatchAsync(new { SmartWatchStatus = "Connected" });
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
             else if (value == ProfileState.Disconnected)
             {
                 IsConnected = false;
                 ButtonStateText = "Scan Devices";
+                try
+                {
+                    await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/DataSensors").PatchAsync(new { SmartWatchStatus = "Disconnected" });
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
         }
 
