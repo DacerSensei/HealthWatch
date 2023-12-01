@@ -13,8 +13,14 @@
         <local:EventToCommandBehavior EventName="Appearing" Command="{Binding LoadedCommand}" />
     </ContentPage.Behaviors>
     <ContentPage.Content>
-        <Grid>
-            <CollectionView ItemsSource="{Binding GoalsList}" x:Name="MyList">
+        <Grid RowDefinitions="Auto,*">
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Add" />
+            </StackLayout>
+            <CollectionView Grid.Row="1" ItemsSource="{Binding GoalsList}" x:Name="MyList">
+                <CollectionView.EmptyView>
+                    <Label Text="Empty Goals" TextColor="Black" FontSize="Subtitle" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <local:Expander>

@@ -2,6 +2,7 @@
 using HealthMonitoring.Config;
 using HealthMonitoring.Models;
 using HealthMonitoring.Services;
+using HealthMonitoring.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.Forms;
 
 namespace HealthMonitoring.ViewModels
 {
@@ -17,12 +19,26 @@ namespace HealthMonitoring.ViewModels
         public GoalsMonitorViewModel()
         {
             LoadedCommand = new AsyncCommand(LoadedExecute);
+            AddCommand = new AsyncCommand(AddExecute);
+            BackCommand = new AsyncCommand(BackExecute);
         }
 
         
         public ObservableCollection<Goals> GoalsList { get; } = new ObservableCollection<Goals>();
 
+        public ICommand AddCommand { get; set; }
+        public ICommand BackCommand { get; set; }
         public ICommand LoadedCommand { get; set; }
+
+        private async Task AddExecute()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new AddGoal());
+        }
+
+        private async Task BackExecute()
+        {
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+        }
 
         private async Task LoadedExecute()
         {
@@ -38,7 +54,6 @@ namespace HealthMonitoring.ViewModels
             {
                 Debug.WriteLine(ex.Message);
             }
-            
         }
     }
 }

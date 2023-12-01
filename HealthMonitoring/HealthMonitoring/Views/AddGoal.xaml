@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthMonitoring.Views.AddGoal"
+             Background="White"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:local="clr-namespace:HealthMonitoring"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+             xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <ViewModel:AddGoalViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowDefinitions="Auto,*">
+                <Grid.Background>
+                    <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#028090" Offset="0.0"/>
+                        <GradientStop Color="#02c39a" Offset=".5"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <StackLayout HeightRequest="80">
+                    <Label Text="Add Goal" FontSize="28" FontFamily="PoppinsBold" Margin="20,0" VerticalOptions="EndAndExpand" TextColor="White" FontAttributes="Bold"/>
+                </StackLayout>
+                <local:CustomFrame CornerRadius="25,25,0,0" Grid.Row="1">
+                    <StackLayout Spacing="0">
+
+                        <Label Text="Meters" FontSize="18" FontFamily="PoppinsRegular" TextColor="#999" Margin="5,0"/>
+                        <Frame Padding="20,0" BackgroundColor="#f6f7f9" CornerRadius="10" Margin="5,0,5,5">
+                            <Entry FontFamily="PoppinsRegular" Text="{Binding Meters}" Placeholder="Enter your first name" TextColor="Black" PlaceholderColor="#999">
+
+                            </Entry>
+                        </Frame>
+
+                        <Button Text="Register" Command="{Binding SaveCommand}" CornerRadius="10" Margin="5,5" TextColor="White" FontFamily="PoppinsRegular">
+                            <Button.Background>
+                                <LinearGradientBrush  StartPoint="0,.5" EndPoint="1,.5">
+                                    <GradientStop Color="#028090" Offset="0.0"/>
+                                    <GradientStop Color="#02c39a" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button Text="Register" Command="{Binding BackCommand}" CornerRadius="10" Margin="5,5" TextColor="White" FontFamily="PoppinsRegular">
+                            <Button.Background>
+                                <LinearGradientBrush  StartPoint="0,.5" EndPoint="1,.5">
+                                    <GradientStop Color="#028090" Offset="0.0"/>
+                                    <GradientStop Color="#02c39a" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackLayout>
+                </local:CustomFrame>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

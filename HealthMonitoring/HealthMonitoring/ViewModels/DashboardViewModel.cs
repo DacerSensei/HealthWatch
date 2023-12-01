@@ -34,7 +34,7 @@ namespace HealthMonitoring.ViewModels
         public ICommand FitnessCommand { get; }
         private async Task FitnessExecute()
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new HeartMonitor());
+            await Application.Current.MainPage.Navigation.PushAsync(new GoalsMonitor());
         }
 
         public ICommand DoCommand { get; }
