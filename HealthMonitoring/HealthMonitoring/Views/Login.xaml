@@ -12,6 +12,9 @@
     <ContentPage.BindingContext>
         <ViewModel:LoginViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior EventName="Appearing" Command="{Binding LoadedCommand}" />
+    </ContentPage.Behaviors>
     <ContentPage.Content>
         <ScrollView>
             <Grid RowDefinitions="Auto,*">

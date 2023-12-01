@@ -10,21 +10,21 @@ namespace HealthMonitoring.Models
         private string smartWatchName;
         public string SmartWatchName
         {
-            get => heartRateSensor;
+            get => smartWatchName;
             set => SetProperty(ref smartWatchName, value);
         }
 
         private string battery;
         public string Battery
         {
-            get => heartRateSensor;
+            get => battery;
             set => SetProperty(ref battery, value);
         }
 
         private string smartWatchStatus;
         public string SmartWatchStatus
         {
-            get => heartRateSensor;
+            get => smartWatchStatus;
             set => SetProperty(ref smartWatchStatus, value);
         }
 
@@ -38,7 +38,7 @@ namespace HealthMonitoring.Models
         private string stepSensor;
         public string StepSensor
         {
-            get => heartRateSensor;
+            get => stepSensor;
             set => SetProperty(ref stepSensor, value);
         }
     }

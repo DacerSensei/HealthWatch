@@ -26,14 +26,14 @@
                 <local:CustomFrame CornerRadius="25,25,0,0" Grid.Row="1">
                     <StackLayout Spacing="0">
 
-                        <Label Text="Meters" FontSize="18" FontFamily="PoppinsRegular" TextColor="#999" Margin="5,0"/>
+                        <Label Text="Steps" FontSize="18" FontFamily="PoppinsRegular" TextColor="#999" Margin="5,0"/>
                         <Frame Padding="20,0" BackgroundColor="#f6f7f9" CornerRadius="10" Margin="5,0,5,5">
-                            <Entry FontFamily="PoppinsRegular" Text="{Binding Meters}" Placeholder="Enter your first name" TextColor="Black" PlaceholderColor="#999">
+                            <Entry FontFamily="PoppinsRegular" Text="{Binding Meters}" Placeholder="How many steps" TextColor="Black" PlaceholderColor="#999">
 
                             </Entry>
                         </Frame>
 
-                        <Button Text="Register" Command="{Binding SaveCommand}" CornerRadius="10" Margin="5,5" TextColor="White" FontFamily="PoppinsRegular">
+                        <Button Text="Save" Command="{Binding SaveCommand}" CornerRadius="10" Margin="5,5" TextColor="White" FontFamily="PoppinsRegular">
                             <Button.Background>
                                 <LinearGradientBrush  StartPoint="0,.5" EndPoint="1,.5">
                                     <GradientStop Color="#028090" Offset="0.0"/>
@@ -41,7 +41,7 @@
                                 </LinearGradientBrush>
                             </Button.Background>
                         </Button>
-                        <Button Text="Register" Command="{Binding BackCommand}" CornerRadius="10" Margin="5,5" TextColor="White" FontFamily="PoppinsRegular">
+                        <Button Text="Back" Command="{Binding BackCommand}" CornerRadius="10" Margin="5,5" TextColor="White" FontFamily="PoppinsRegular">
                             <Button.Background>
                                 <LinearGradientBrush  StartPoint="0,.5" EndPoint="1,.5">
                                     <GradientStop Color="#028090" Offset="0.0"/>

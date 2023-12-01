@@ -3,6 +3,7 @@ using HealthMonitoring.Config;
 using HealthMonitoring.Models;
 using HealthMonitoring.Services;
 using Newtonsoft.Json;
+using Org.Apache.Http.Impl;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -50,8 +51,22 @@ namespace HealthMonitoring.ViewModels
                     Completed = "Unknown",
                     Status = "Incomplete"
                 };
-                await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/Goals").PostAsync(request);
-            }catch(Exception ex)
+                try
+                {
+                    await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/Goals").PostAsync(request);
+                    await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/CurrentGoal").PutAsync(request);
+                    Services.UserManager.User.CurrentGoal = request;
+                    await Application.Current.MainPage.Navigation.PopModalAsync();
+                    await ToastManager.ShowToast("You set a new goal", Color.FromHex("#1eb980"));
+                }
+                catch (Exception)
+                {
+                    await ToastManager.ShowToast("Something went wrong", Color.FromHex("#FF605C"));
+                }
+                
+
+            }
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }

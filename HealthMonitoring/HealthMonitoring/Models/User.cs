@@ -9,8 +9,9 @@ namespace HealthMonitoring.Models
 {
     public class User : ObservableObject
     {
-        public string Uid { get; set; }
+        public event EventHandler CurrentGoalChanged;
 
+        public string Uid { get; set; }
         public string Key { get; set; }
 
         private string contact;
@@ -106,6 +107,17 @@ namespace HealthMonitoring.Models
             set
             {
                 SetProperty(ref dataSensors, value);
+                //CurrentGoalChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        private Goals currentGoal;
+        public Goals CurrentGoal
+        {
+            get => currentGoal;
+            set
+            {
+                SetProperty(ref currentGoal, value);
             }
         }
 

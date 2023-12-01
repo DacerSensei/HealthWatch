@@ -5,7 +5,8 @@
              x:Class="HealthMonitoring.Views.GoalsMonitor"
              xmlns:UserManager="clr-namespace:HealthMonitoring.Services" 
              xmlns:local="http://xamarin.com/schemas/2020/toolkit"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
     <ContentPage.BindingContext>
         <ViewModel:GoalsMonitorViewModel />
     </ContentPage.BindingContext>
@@ -15,7 +16,8 @@
     <ContentPage.Content>
         <Grid RowDefinitions="Auto,*">
             <StackLayout Orientation="Horizontal">
-                <Button Text="Add" />
+                <Button Text="Back" Command="{Binding BackCommand}" HorizontalOptions="Start"/>
+                <Button Text="Add" Command="{Binding AddCommand}" HorizontalOptions="EndAndExpand"/>
             </StackLayout>
             <CollectionView Grid.Row="1" ItemsSource="{Binding GoalsList}" x:Name="MyList">
                 <CollectionView.EmptyView>
@@ -23,9 +25,73 @@
                 </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <local:Expander>
-                            <Label Text="{Binding Key}"></Label>
-                        </local:Expander>
+                        <StackLayout Padding="4">
+                            <Frame>
+                                <local:Expander>
+                                    <local:Expander.Header>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label TextColor="black" FontFamily="PoppinsBold" FontSize="Subtitle" >
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="{Binding TotalSteps}"/>
+                                                            <Span Text=" Steps"/>
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label Text="{Binding Status}" TextColor="{Binding StatusColor}" FontFamily="PoppinsBold" FontSize="Subtitle" HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </local:Expander.Header>
+                                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" Margin="0,10,0,0">
+                                        <Label TextColor="black">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="Date Created: "/>
+                                                        <Span Text="{Binding Created}"/>
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Grid.Row="1" TextColor="black">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="Date Completed: "/>
+                                                        <Span Text="{Binding Completed}"/>
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Grid.Column="1" TextColor="black">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="Goal: "/>
+                                                        <Span Text="{Binding TotalSteps}"/>
+                                                        <Span Text=" Steps"/>
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Grid.Column="1" Grid.Row="1" TextColor="black">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="Progress: "/>
+                                                        <Span Text="{Binding StepsTaken}"/>
+                                                        <Span Text=" Steps"/>
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Button Grid.Row="2" Text="Edit" IsVisible="{Binding IsCompleted}"/>
+                                        <Button Grid.Row="2" Grid.Column="1" Text="Delete"  IsVisible="{Binding IsCompleted}"/>
+                                    </Grid>
+                                </local:Expander>
+                            </Frame>
+                        </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

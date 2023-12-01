@@ -19,8 +19,18 @@
                                           HorizontalOptions="StartAndExpand" AutoPlay="True" RepeatMode="Infinite"/>
                     <Label Grid.Column="1" TextColor="#50bfcc" FontFamily="PoppinsBold" Text="SET SOME GOALS!" FontSize="Subtitle" VerticalTextAlignment="Center" />
                     <Image Grid.Row="1" Source="Goal.png" HeightRequest="50" WidthRequest="50"  Margin="10,-40,10,0"/>
-                    <Label Grid.Row="1" Grid.Column="1" TextColor="white" FontFamily="PoppinsBold" Margin="0,-40,0,0" FontSize="Small" Text="You are 0% done with you goals for the day" VerticalTextAlignment="Center" />
-                </Grid>
+                <Label Grid.Row="1" Grid.Column="1" TextColor="white" FontFamily="PoppinsBold" Margin="0,-40,0,0" FontSize="Small" VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="You are "/>
+                                <Span Text="{Binding GoalPercentage, Mode=OneWay}"/>
+                                <Span Text="% done with you goals for the day"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
             <ScrollView Grid.Row="1">
                 <StackLayout  Margin="20">
                     <Frame Padding="0,0,0,10" xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
