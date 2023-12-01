@@ -39,7 +39,14 @@ namespace HealthMonitoring.Models
         public string StepSensor
         {
             get => stepSensor;
-            set => SetProperty(ref stepSensor, value);
+            set
+            {
+                SetProperty(ref stepSensor, value);
+                StepCounterChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
+
+        public event EventHandler StepCounterChanged;
+
     }
 }

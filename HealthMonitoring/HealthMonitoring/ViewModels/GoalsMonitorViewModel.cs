@@ -22,6 +22,7 @@ namespace HealthMonitoring.ViewModels
             LoadedCommand = new AsyncCommand(LoadedExecute);
             AddCommand = new AsyncCommand(AddExecute);
             BackCommand = new AsyncCommand(BackExecute);
+            StartGoalCommand = new AsyncCommand(StartGoalExecute);
         }
 
         public ObservableCollection<Goals> GoalsList { get; } = new ObservableCollection<Goals>();
@@ -30,7 +31,7 @@ namespace HealthMonitoring.ViewModels
         public ICommand BackCommand { get; set; }
         public ICommand LoadedCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
-        public ICommand StartGoal { get; set; }
+        public ICommand StartGoalCommand { get; set; }
 
         private async Task AddExecute()
         {
@@ -41,6 +42,11 @@ namespace HealthMonitoring.ViewModels
             }
             await Application.Current.MainPage.Navigation.PushModalAsync(new AddGoal());
             await LoadedExecute();
+        }
+
+        private async Task StartGoalExecute()
+        {
+            await DependencyService.Get<IBluetoothService>().WriteCharacteristicAsync("START_STEP_COUNTER");
         }
 
         private async Task BackExecute()

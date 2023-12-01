@@ -107,7 +107,7 @@ namespace HealthMonitoring.Models
             set
             {
                 SetProperty(ref dataSensors, value);
-                //CurrentGoalChanged?.Invoke(this, EventArgs.Empty);
+                CurrentGoalChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 

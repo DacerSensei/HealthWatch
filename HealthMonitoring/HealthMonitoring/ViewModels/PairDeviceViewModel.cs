@@ -13,6 +13,9 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using System.Diagnostics;
 using static Android.Graphics.BlurMaskFilter;
+using System.Collections.Generic;
+using HealthMonitoring.Models;
+using System.Linq;
 
 namespace HealthMonitoring.ViewModels
 {
@@ -55,7 +58,7 @@ namespace HealthMonitoring.ViewModels
                 }
                 BLEDevicesList.Clear();
                 IsLoading = true;
-                var devices = await bluetoothService.ScanForDevicesAsync();
+                List<BluetoothDevice> devices = await bluetoothService.ScanForDevicesAsync();
                 if (devices != null)
                 {
                     for (int i = 0; i < devices.Count; i++)
@@ -88,19 +91,35 @@ namespace HealthMonitoring.ViewModels
         private async void BluetoothService_CharacteristicValueChanged(object sender, string e)
         {
             string heartRate = "HeartRate:";
+            string stepCounter = "StepCounter:";
             if (e.Contains(heartRate))
             {
                 var value = e.Substring(heartRate.Length);
                 UserManager.User.DataSensors.HeartRateSensor = value;
                 try
                 {
-                    await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/DataSensors").PatchAsync(new { SmartWatchStatus = "Connected" });
+                    await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/DataSensors").PatchAsync(new { HeartRateSensor = value });
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex.Message);
                 }
             }
+            else if (e.Contains(stepCounter))
+            {
+                var value = e.Substring(stepCounter.Length);
+                Debug.WriteLine(value);
+                UserManager.User.DataSensors.StepSensor = value;
+                try
+                {
+                    await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/DataSensors").PatchAsync(new { StepSensor = value });
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
         }
 
         private async void BluetoothService_ConnectionStateChanged(object sender, ProfileState value)
@@ -125,6 +144,18 @@ namespace HealthMonitoring.ViewModels
                 try
                 {
                     await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/DataSensors").PatchAsync(new { SmartWatchStatus = "Disconnected" });
+                    await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/DataSensors").PatchAsync(new { StepSensor = "0" });
+                    var result = await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/Goals").OnceAsync<Goals>();
+                    if (result != null)
+                    {
+                        var goal = result.FirstOrDefault(g => g.Object.IsCompleted);
+                        if (goal != null)
+                        {
+                            await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/CurrentGoal").PatchAsync(new { StepsTaken = UserManager.User.DataSensors.StepSensor });
+                            await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/Goals/{goal.Key}").PatchAsync(new { StepsTaken = UserManager.User.DataSensors.StepSensor });
+                        }
+                        UserManager.User.DataSensors.StepSensor = "0";
+                    }
                 }
                 catch (Exception ex)
                 {

@@ -86,7 +86,7 @@
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
-                                        <Button Grid.Row="2" Text="Edit" IsVisible="{Binding IsCompleted}"/>
+                                        <Button Grid.Row="2" Text="Edit" IsVisible="{Binding IsCompleted}" Command="{Binding Source={x:Reference MyList}, Path=BindingContext.StartGoalCommand}"/>
                                         <Button Grid.Row="2" Grid.Column="1" Text="Delete"  IsVisible="{Binding IsCompleted}"/>
                                     </Grid>
                                 </local:Expander>
