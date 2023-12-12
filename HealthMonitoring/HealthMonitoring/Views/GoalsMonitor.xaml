@@ -16,8 +16,8 @@
     <ContentPage.Content>
         <Grid RowDefinitions="Auto,*">
             <StackLayout Orientation="Horizontal">
-                <Button Text="Back" Command="{Binding BackCommand}" HorizontalOptions="Start"/>
-                <Button Text="Add" Command="{Binding AddCommand}" HorizontalOptions="EndAndExpand"/>
+                <Button Text="Back" Command="{Binding BackCommand}" TextColor="White" Margin="10" CornerRadius="4" Padding="5" Background="#d83c3e" HorizontalOptions="Start"/>
+                <Button Text="Add" Command="{Binding AddCommand}" TextColor="White" Margin="10" CornerRadius="4" Padding="5" Background="#1eb980" HorizontalOptions="EndAndExpand"/>
             </StackLayout>
             <CollectionView Grid.Row="1" ItemsSource="{Binding GoalsList}" x:Name="MyList">
                 <CollectionView.EmptyView>
@@ -86,8 +86,8 @@
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
-                                        <Button Grid.Row="2" Text="Edit" IsVisible="{Binding IsCompleted}" Command="{Binding Source={x:Reference MyList}, Path=BindingContext.StartGoalCommand}"/>
-                                        <Button Grid.Row="2" Grid.Column="1" Text="Delete"  IsVisible="{Binding IsCompleted}"/>
+                                        <Button Grid.Row="2" BackgroundColor="{Binding Source={x:Reference MyList}, Path=BindingContext.StepModeColor}" Margin="0,20,0,0" Text="{Binding Source={x:Reference MyList}, Path=BindingContext.StepMode}" TextColor="White" IsVisible="{Binding IsCompleted}" Command="{Binding Source={x:Reference MyList}, Path=BindingContext.StartGoalCommand}"/>
+                                        <Button Grid.Row="2" Grid.Column="1" Background="#d83c3e" Margin="0,20,0,0" TextColor="White" Command="{Binding Source={x:Reference MyList}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}" Text="Delete" IsVisible="{Binding IsCompleted}"/>
                                     </Grid>
                                 </local:Expander>
                             </Frame>

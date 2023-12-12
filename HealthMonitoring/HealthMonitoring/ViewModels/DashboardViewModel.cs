@@ -31,9 +31,9 @@ namespace HealthMonitoring.ViewModels
 
         private async void GoalCompleteEvent(object sender, EventArgs e)
         {
-            await DependencyService.Get<IBluetoothService>().WriteCharacteristicAsync("STOP_STEP_COUNTER");
             try
             {
+                await DependencyService.Get<IBluetoothService>().WriteCharacteristicAsync("STOP_STEP_COUNTER");
                 var result = await Database.FirebaseClient.Child($"users/{UserManager.User.Key}/Goals").OnceAsync<Goals>();
                 if (result != null)
                 {
@@ -66,7 +66,7 @@ namespace HealthMonitoring.ViewModels
         public ICommand FitnessCommand { get; }
         private async Task FitnessExecute()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new GoalsMonitor());
+            await Application.Current.MainPage.Navigation.PushModalAsync(new GoalsMonitor());
         }
 
         public ICommand DoCommand { get; }

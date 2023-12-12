@@ -14,11 +14,15 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, *" RowSpacing="0">
-                <Grid BackgroundColor="Black" ColumnDefinitions="Auto, *" RowSpacing="0" Padding="5,0" xct:CornerRadiusEffect.CornerRadius="0,0,10,10">
-                    <lottie:AnimationView Animation="Arrow.json" HeightRequest="75" WidthRequest="75" AnimationSource="AssetOrBundle"
+            <Grid BackgroundColor="Black" ColumnDefinitions="Auto, *" RowSpacing="0" Padding="5,0" xct:CornerRadiusEffect.CornerRadius="0,0,10,10">
+                <lottie:AnimationView Animation="Arrow.json" HeightRequest="75" WidthRequest="75" AnimationSource="AssetOrBundle"
                                           HorizontalOptions="StartAndExpand" AutoPlay="True" RepeatMode="Infinite"/>
-                    <Label Grid.Column="1" TextColor="#50bfcc" FontFamily="PoppinsBold" Text="SET SOME GOALS!" FontSize="Subtitle" VerticalTextAlignment="Center" />
-                    <Image Grid.Row="1" Source="Goal.png" HeightRequest="50" WidthRequest="50"  Margin="10,-40,10,0"/>
+                <Label Grid.Column="1" TextColor="#50bfcc" FontFamily="PoppinsBold" Text="SET SOME GOALS!" FontSize="Subtitle" VerticalTextAlignment="Center" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FitnessCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image Grid.Row="1" Source="Goal.png" HeightRequest="50" WidthRequest="50"  Margin="10,-40,10,0"/>
                 <Label Grid.Row="1" Grid.Column="1" TextColor="white" FontFamily="PoppinsBold" Margin="0,-40,0,0" FontSize="Small" VerticalTextAlignment="Center">
                     <Label.FormattedText>
                         <FormattedString>
@@ -38,7 +42,7 @@
                             <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
                                 <GradientStop Color="#ff6773" Offset="0.0"/>
                                 <GradientStop Color="#ff8c71" Offset=".5"/>
-                                </LinearGradientBrush>
+                            </LinearGradientBrush>
                         </Frame.Background>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding HeartRateCommand}" />
@@ -64,7 +68,7 @@
                             <lottie:AnimationView Animation="Exercise.json" HeightRequest="200" WidthRequest="200" AnimationSource="AssetOrBundle" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
                                               AutoPlay="True" RepeatMode="Infinite"/>
                             <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Row="1" Text="Fitness" FontSize="Subtitle" HorizontalTextAlignment="Center" />
-                            <Label TextColor="Black" FontFamily="PoppinsRegular" Grid.Row="2" Text="Let's check your heart" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                            <Label TextColor="Black" FontFamily="PoppinsRegular" Grid.Row="2" Text="Let's check your goals" FontSize="Subtitle" HorizontalTextAlignment="Center" />
                         </Grid>
                     </Frame>
                     <Frame Padding="0,0,0,10" xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
@@ -87,7 +91,7 @@
                 </StackLayout>
             </ScrollView>
         </Grid>
-            
-        
+
+
     </ContentPage.Content>
 </ContentPage>
