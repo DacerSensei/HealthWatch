@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthMonitoring.Views.Settings"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+             xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
+             xmlns:UserManager="clr-namespace:HealthMonitoring.Services"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+    <ContentPage.BindingContext>
+        <ViewModel:SettingsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowDefinitions="*, Auto">
+            <StackLayout>
+                <Image Source="SettingsCover.png" HeightRequest="200" WidthRequest="200"/>
+                <Label Text="Settings" HorizontalTextAlignment="Center" TextColor="Black" FontSize="Title" FontFamily="PoppinsBold"/>
+                <Button Grid.Row="1" Text="Change Information" Command="{Binding EditInformationCommand}" TextColor="White" Margin="10,10,10,0" FontFamily="PoppinsBold">
+                    <Button.Background>
+                        <LinearGradientBrush  StartPoint="0,.5" EndPoint="1,.5">
+                            <GradientStop Color="#028090" Offset="0.0"/>
+                            <GradientStop Color="#02c39a" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Grid.Row="1" Text="Change Password" Command="{Binding ChangePasswordCommand}" TextColor="White" Margin="10,10,10,0" FontFamily="PoppinsBold">
+                    <Button.Background>
+                        <LinearGradientBrush  StartPoint="0,.5" EndPoint="1,.5">
+                            <GradientStop Color="#028090" Offset="0.0"/>
+                            <GradientStop Color="#02c39a" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackLayout>
+            <Button Grid.Row="1" Text="Logout" Command="{Binding LogoutCommand}" BackgroundColor="#d83c3e" TextColor="White" Margin="10" FontFamily="PoppinsBold"></Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

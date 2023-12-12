@@ -23,12 +23,6 @@
                         </LinearGradientBrush>
                     </local:CustomFrame.Background>
                     <StackLayout>
-                        <Frame VerticalOptions="Start" xct:TouchEffect.NativeAnimation="True" HorizontalOptions="End" Padding="15,8" CornerRadius="10" BackgroundColor="white">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding LogoutCommand}"/>
-                            </Frame.GestureRecognizers>
-                            <Label Text="Logout" TextColor="#028090" FontSize="22" FontAttributes="Bold"/>
-                        </Frame>
                         <Frame CornerRadius="6" Margin="4,0">
                             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BindingContext="{Binding Source={x:Static UserManager:UserManager.User}}">
                                 <xct:AvatarView Size="100" HorizontalOptions="CenterAndExpand" Text="{Binding InitialName}"/>

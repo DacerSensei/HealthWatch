@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthMonitoring.Views.EditInformation"
+             Background="White"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:local="clr-namespace:HealthMonitoring" 
+             xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <ViewModel:EditInformationViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowDefinitions="Auto,*">
+                <Grid.Background>
+                    <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#028090" Offset="0.0"/>
+                        <GradientStop Color="#02c39a" Offset=".5"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <StackLayout HeightRequest="80">
+                    <Label Text="Edit Information" FontSize="28" FontFamily="PoppinsBold" Margin="20,0" VerticalOptions="EndAndExpand" TextColor="White" FontAttributes="Bold"/>
+                </StackLayout>
+                <local:CustomFrame CornerRadius="25,25,0,0" Grid.Row="1">
+                    <StackLayout Spacing="0">
+                        <Label Text="Instruction" FontSize="28" FontFamily="PoppinsBold" TextColor="#028090" FontAttributes="Bold"/>
+                        <Label Text="Edit fields to change your personal information" FontSize="18" FontFamily="PoppinsRegular" TextColor="#999" Margin="0,0,0,20"/>
+
+                        <Label Text="First Name" FontSize="18" FontFamily="PoppinsRegular" TextColor="#999" Margin="5,0"/>
+                        <Frame Padding="20,0" BackgroundColor="#f6f7f9" CornerRadius="10" Margin="5,0,5,5">
+                            <Entry FontFamily="PoppinsRegular" Text="{Binding FirstName}" Placeholder="Enter your first name" TextColor="Black" PlaceholderColor="#999">
+
+                            </Entry>
+                        </Frame>
+
+                        <Label Text="Last Name" FontSize="18" FontFamily="PoppinsRegular" TextColor="#999" Margin="5,0"/>
+                        <Frame Padding="20,0" BackgroundColor="#f6f7f9" CornerRadius="10" Margin="5,0,5,5">
+                            <Entry FontFamily="PoppinsRegular" Text="{Binding LastName}" Placeholder="Enter your last name" TextColor="Black" PlaceholderColor="#999">
+
+                            </Entry>
+                        </Frame>
+
+                        <Label Text="Contact Number" FontSize="18" FontFamily="PoppinsRegular" TextColor="#999" Margin="5,0"/>
+                        <Frame Padding="20,0" BackgroundColor="#f6f7f9" CornerRadius="10" Margin="5,0,5,5">
+                            <Entry FontFamily="PoppinsRegular" Text="{Binding Contact}" Placeholder="Enter your mobile number" TextColor="Black" PlaceholderColor="#999">
+
+                            </Entry>
+                        </Frame>
+
+                        <Label Text="Birthday" FontSize="18" FontFamily="PoppinsRegular" TextColor="#999" Margin="5,0"/>
+                        <Frame Padding="20,0" BackgroundColor="#f6f7f9" CornerRadius="10" Margin="5,0,5,5">
+                            <DatePicker Date="{Binding Birthday}" Format="MMMM dd, yyyy" MaximumDate="{Binding MaximumDate}" TextColor="Black"/>
+                        </Frame>
+
+                        <Label Text="Gender" FontSize="18" FontFamily="PoppinsRegular" TextColor="#999" Margin="5,0"/>
+                        <Frame Padding="20,0" BackgroundColor="#f6f7f9" CornerRadius="10" Margin="5,0,5,5">
+                            <Picker SelectedItem="{Binding Gender}" Title="Gender" TitleColor="Black" TextColor="Black">
+                                <Picker.Items>
+                                    <x:String>Male</x:String>
+                                    <x:String>Female</x:String>
+                                </Picker.Items>
+                            </Picker>
+                        </Frame>
+
+                        <Label Text="Weight" FontSize="18" FontFamily="PoppinsRegular" TextColor="#999" Margin="5,0"/>
+                        <Frame Padding="20,0" BackgroundColor="#f6f7f9" CornerRadius="10" Margin="5,0,5,5">
+                            <Entry FontFamily="PoppinsRegular" Text="{Binding Weight}" Placeholder="Enter your weight" TextColor="Black" PlaceholderColor="#999">
+                            </Entry>
+                        </Frame>
+
+                        <Label Text="Height" FontSize="18" FontFamily="PoppinsRegular" TextColor="#999" Margin="5,0"/>
+                        <Frame Padding="20,0" BackgroundColor="#f6f7f9" CornerRadius="10" Margin="5,0,5,30">
+                            <Entry FontFamily="PoppinsRegular" Text="{Binding Height}" Placeholder="Enter your height" TextColor="Black" PlaceholderColor="#999">
+                            </Entry>
+                        </Frame>
+
+                        <Button Text="Save Information" Command="{Binding SaveCommand}" Margin="10,10,10,0" TextColor="White" FontFamily="PoppinsBold">
+                            <Button.Background>
+                                <LinearGradientBrush  StartPoint="0,.5" EndPoint="1,.5">
+                                    <GradientStop Color="#028090" Offset="0.0"/>
+                                    <GradientStop Color="#02c39a" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button Grid.Row="1" Text="Cancel" Command="{Binding GoBackCommand}" BackgroundColor="#d83c3e" TextColor="White" Margin="10" FontFamily="PoppinsBold"></Button>
+
+                    </StackLayout>
+                </local:CustomFrame>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

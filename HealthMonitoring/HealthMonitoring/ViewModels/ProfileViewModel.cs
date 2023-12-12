@@ -14,14 +14,7 @@ namespace HealthMonitoring.ViewModels
     {
         public ProfileViewModel()
         {
-            LogoutCommand = new AsyncCommand(LogoutExecute);
-        }
-
-        public ICommand LogoutCommand { get; }
-        private async Task LogoutExecute()
-        {
-            Database.FirebaseAuthClient.SignOut();
-            await Application.Current.MainPage.Navigation.PushAsync(new Login());
+            
         }
     }
 }

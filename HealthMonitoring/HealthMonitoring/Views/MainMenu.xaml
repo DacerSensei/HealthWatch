@@ -19,4 +19,5 @@
     <local:Dashboard Title="Home" IconImageSource="Home"/>
     <local:PairDevice Title="Smartwatch" IconImageSource="Smartwatch"/>
     <local:Profile Title="User" IconImageSource="User"/>
+    <local:Settings Title="Settings" IconImageSource="Settings"/>
 </TabbedPage>
