@@ -32,10 +32,6 @@ namespace HealthWatch
 
             BluetoothStatus = FindViewById<TextView>(Resource.Id.Status);
             DeviceConnected = FindViewById<TextView>(Resource.Id.DeviceName);
-            Button Button = FindViewById<Button>(Resource.Id.myButton);
-            Button Button2 = FindViewById<Button>(Resource.Id.secondButton);
-            Button.Click += GetStarted;
-            Button2.Click += SecondButton;
 
             StartForegroundHealth();
             BlueoothGattProcessor = new BluetoothGattProcessor();
@@ -80,12 +76,6 @@ namespace HealthWatch
             SensorLibrary sensorLibrary = new SensorLibrary(this);
             sensorLibrary.GetBattery();
             //ServiceConnection.ForegroundHealthServices.ControlSensor(Services.Enums.SensorCommand.START_HEART_RATE);
-        }
-
-        private void SecondButton(object sender, EventArgs e)
-        {
-            //ServiceConnection.ForegroundHealthServices.ControlSensor(Services.Enums.SensorCommand.STOP_HEART_RATE);
-            System.Diagnostics.Debug.WriteLine("Foreground Status: " + IsServiceRunning("com.healthwatch.ForegroundHealthServices"));
         }
 
         private void StartForegroundHealth()

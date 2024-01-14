@@ -1,0 +1,40 @@
+main {
+    background: linear-gradient(to bottom, #028090, #02c39a);
+}
+
+main>form {
+    display: flex;
+}
+
+main section {
+    width: 40rem;
+    margin: 1rem auto;
+    background-color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 0 48px rgba(0, 0, 0, .08);
+    border-radius: 4px;
+}
+
+main section > h1 {
+    text-align: center;
+}
+
+main section>a {
+    color: #02c39a;
+    text-decoration: underline;
+}
+
+main section>img {
+    width: 10rem;
+    margin: 0 auto;
+}
+
+@media (max-width: 46.25rem) {
+    main section {
+        width: 100%;
+        margin: 1rem 1rem;
+    }
+}

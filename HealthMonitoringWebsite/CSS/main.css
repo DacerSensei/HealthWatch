@@ -1,0 +1,450 @@
+:root {
+    --sidebar-toggle: 16rem;
+    /* Dont change */
+    --grid-gap-default: 1.875rem;
+    --color-primary: #000;
+    --color-secondary: white;
+    --color-border: #2C2E33;
+    --color-ash: #d5dee1;
+    --color-green: #00d25b;
+    --color-yellow: #ffab00;
+    --color-blue: #0090e7;
+    --color-red: #fc424a;
+    --color-purple: #8f5fe8;
+    --color-pink: #f72585;
+    --color-ash-transparency: #d5dee11C;
+    --color-green-transparency: #00d25b1C;
+    --color-yellow-transparency: #ffab001C;
+    --color-blue-transparency: #0090e71C;
+    --color-red-transparency: #fc424a1C;
+    --color-purple-transparency: #8f5fe81C;
+    --color-pink-transparency: #f725851C;
+    --bg-color-primary: #FFF;
+    --bg-color-secondary: #191c24;
+    --bg-color-frame: #12151e;
+    --bg-color-side-list: #0f1015;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/Fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('/Fonts/Nunito-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('/Fonts/Heebo-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Pacifico';
+    src: url('/Fonts/Pacifico-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('/Fonts/BebasNeue-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('/Fonts/Rubik-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100dvh;
+    font-family: 'Poppins';
+    background-color: var(--bg-color-primary);
+    display: flex;
+    flex-direction: column;
+    color: var(--color-primary);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    flex-grow: 1;
+}
+
+main>section {
+    display: grid;
+    padding: 1rem;
+    color: var(--color-primary);
+    margin-left: var(--sidebar-toggle);
+    transition: margin-left 300ms ease-out;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    user-select: none;
+}
+
+/* End Global */
+
+header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    height: 4rem;
+    background-color: #02c39a;
+    z-index: 50;
+}
+
+header>#Logo {
+    display: flex;
+    position: relative;
+    width: var(--sidebar-toggle);
+    transition: width 300ms ease-out;
+    height: 100%;
+}
+
+header>#Logo>img {
+    height: 80%;
+    margin: auto;
+}
+
+header>#Logo>h4 {
+    color: #feaf39;
+    margin: auto auto auto 0;
+}
+
+header>.header-menu {
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+header>.header-menu>.side-menu-collapse {
+    height: 2rem;
+    width: 2rem;
+}
+
+header>.header-menu>.side-menu-collapse>svg {
+    fill: var(--color-primary);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+header #Search {
+    margin-left: auto;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+    width: 30rem;
+    background-color: transparent;
+}
+
+
+header #SearchButton>svg {
+    padding: .2rem;
+}
+
+header .User-Profile-Container li {
+    list-style: none;
+}
+
+
+header .User-Profile-Container>ul {
+    display: flex;
+    align-items: center;
+}
+
+header .User-Profile-Container>ul> :nth-child(1)>button,
+header .User-Profile-Container>ul> :nth-child(2)>button {
+    height: 2rem;
+    margin: 0 1rem;
+}
+
+header .User-Profile-Container>ul> :nth-child(1)>button span,
+header .User-Profile-Container>ul> :nth-child(2)>button span {
+    position: absolute;
+    content: '';
+    left: 62%;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    top: 1px;
+    background-color: var(--color-green);
+}
+
+
+.User-Profile-Container .btn-profile {
+    display: flex;
+    align-items: center;
+    margin: 0 .8rem;
+}
+
+.User-Profile-Container .btn-profile>div {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.User-Profile-Container .btn-profile>div>img {
+    height: 100%;
+    width: 100%;
+}
+
+.btn-profile>.user-profile-name {
+    font-family: 'Nunito';
+    font-weight: normal;
+    margin-left: .7rem;
+    color: white;
+}
+
+.btn-profile>svg {
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: #999fa7;
+    vertical-align: middle;
+}
+
+header .User-Profile-Container>ul>li {
+    position: relative;
+}
+
+header .User-Profile-Container>ul>li>ul {
+    position: absolute;
+    top: calc(4rem - 1.25rem);
+    background-color: #fefefe;
+    min-width: 100%;
+    box-shadow: 0px 0px 35px -3px black;
+    font-family: 'Nunito';
+    border-radius: 0 0 0.25rem 0.25rem;
+    animation: FadeInDown 300ms forwards ease-out;
+    display: none;
+}
+
+.User-Profile-Container .header-message-content,
+.User-Profile-Container .header-notification-content {
+    width: 16rem;
+    right: 0;
+}
+
+.User-Profile-Container>ul>li>ul.Show {
+    display: block;
+}
+
+header .User-Profile-Container>ul>li>ul>h4 {
+    padding: 1rem .6rem;
+
+}
+
+header .User-Profile-Container>ul>li>ul>button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: .8rem;
+    border-top: 1px solid var(--color-border);
+}
+
+header .User-Profile-Container>ul>li>ul>button:hover {
+    background-color: #a8a9a8;
+}
+
+header .User-Profile-Container>ul>li>ul>button>div {
+    border-radius: 50%;
+    background-color: #0d0d0d;
+    margin-right: 1rem;
+}
+
+header .User-Profile-Container>ul>li>ul>button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+    margin: .4rem;
+}
+
+header .User-Profile-Container>ul>li>ul>button>h4 {
+    font-family: 'Rubik';
+}
+
+
+/* Side menu design */
+
+main>aside {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    min-height: calc(100vh - 4rem);
+    background-color: #02c39a;
+    width: var(--sidebar-toggle);
+    transition: width 300ms ease-out;
+    font-family: 'Nunito';
+    z-index: 50;
+}
+
+aside>nav {
+    flex-grow: 1;
+}
+
+#MainNavigation>h4 {
+    margin: 2rem 1rem 1rem 1rem;
+    color: white;
+}
+
+#MainNavigation>ul {
+    color: var(--color-primary);
+}
+
+#MainNavigation>ul>li>a {
+    padding: .6rem 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: .4rem;
+    border-radius: 0 .4rem .4rem 0;
+    cursor: pointer;
+    background-color: #fefefe;
+    margin-bottom: .2rem;
+}
+
+#MainNavigation>ul>li:hover>a {
+    background-color: #feaf39;
+    color: var(--color-primary)
+}
+
+#MainNavigation>ul>li>a>svg:not(:last-child) {
+    margin: 0 .62rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+    padding: .6rem;
+    background-color: #2a2d3a;
+}
+
+#MainNavigation>ul>li>a> :nth-child(3) {
+    height: 1.2rem;
+    width: 1.2rem;
+    fill: #6c729361;
+    margin-left: auto;
+    margin-right: .6rem;
+}
+
+#MainNavigation>ul>li>h4 {
+    margin: 0 .4rem;
+}
+
+#MainNavigation>ul>li>ul>li {
+    cursor: pointer;
+    margin: .6rem;
+    margin-left: 3.75rem;
+    list-style: none;
+}
+
+.DropdownMenuList {
+    max-height: 0px;
+    overflow: hidden;
+    transition: 500ms ease, opacity 500ms ease;
+}
+
+#MainNavigation>ul>li>ul>li:hover>a {
+    color: var(--color-primary)
+}
+
+#MainNavigation>ul>li>ul>li>a.active {
+    color: var(--color-primary)
+}
+
+
+.NavigationActive {
+    color: var(--color-primary);
+    background-color: #feaf39 !important;
+}
+
+.NavigationActive::before {
+    content: '';
+    position: absolute;
+    width: .3rem;
+    height: 100%;
+    background-color: var(--color-purple);
+}
+
+.DropdownMenuList.show {
+    max-height: 300px;
+    opacity: 1;
+}
+
+#MainNavigation>ul>.DropdownMenu.flex {
+    display: flex;
+}
+
+.DropdownMenuList.absolute {
+    position: absolute;
+    left: 4rem;
+    background-color: var(--bg-color-side-list);
+    transition: none;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.DropdownMenuList.absolute>li {
+    margin: 1rem !important;
+    width: max-content;
+}
+
+/* Scrollbar design */
+::-webkit-scrollbar {
+    width: 5px;
+    /* background-color: #d1272c; */
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #02c39a;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #02c39a;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+@media (max-width: 62.5rem) {
+    :root {
+        --sidebar-toggle: 4rem;
+    }
+    header>#Logo>h4 {
+        display: none;
+    }
+    #MainNavigation>h4 {
+        display: none;
+    }
+    #MainNavigation > ul > li span{
+        display: none;
+    }
+    .side-menu-collapse {
+        display: none;
+    }
+    .User-Profile-Container {
+        margin-left: auto;
+    }
+}

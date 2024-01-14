@@ -1,0 +1,73 @@
+main>section {
+    grid-template-rows: auto 1fr;
+    gap: var(--grid-gap-default);
+    background-color: white;
+}
+
+main>section>.header-section {
+    position: relative;
+    padding: 1rem;
+    background-color: #02c39a;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    color: white;
+}
+
+main>section>.table-section {
+    background-color: #02c39a;
+    padding: 1.25rem;
+}
+
+main>section>.table-section>table th {
+    top: 3.9rem;
+}
+
+#ContentSearch {
+    margin-left: auto;
+}
+
+.pagination {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+}
+
+.pagination>a {
+    border: 1px var(--color-border) solid;
+    background-color: var(--bg-color-frame);
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nunito';
+}
+
+.pagination>a.pagination-Active {
+    background-color: var(--color-purple);
+}
+
+#admin-form section, 
+#teacher-form section,
+#student-form section  {
+    width: 40rem;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 0 48px rgba(0, 0, 0, .08);
+    border-radius: 4px;
+}
+
+@media (max-width: 62.5rem){
+    main>section>.header-section {
+        grid-template-columns: 1fr;
+    }
+
+    #ContentSearch {
+        margin-left: 0;
+        width: 100%;
+    }
+}

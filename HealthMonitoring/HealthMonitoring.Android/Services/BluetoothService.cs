@@ -4,12 +4,14 @@ using Android.Bluetooth.LE;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using Android.Widget;
 using HealthMonitoring.Droid.Services;
 using HealthMonitoring.Services;
 using Java.Util;
 using Plugin.BLE.Android;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Android.Bluetooth.BluetoothAdapter;
@@ -109,7 +111,6 @@ namespace HealthMonitoring.Droid.Services
             await Task.Delay(10000);
 
             bluetoothScanner.StopScan(LeScanCallback);
-
             return scannedDevices;
         }
 

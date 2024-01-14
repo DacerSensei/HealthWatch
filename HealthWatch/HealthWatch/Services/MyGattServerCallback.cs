@@ -33,6 +33,7 @@ namespace HealthWatch.Services
         {
             base.OnConnectionStateChange(device, status, newState);
             ConnectionStateChanged?.Invoke(device, newState);
+            
             if (newState == ProfileState.Connected)
             {
                 connectedDevice = device;
@@ -40,7 +41,7 @@ namespace HealthWatch.Services
                 OffBody.StartSensorMonitoring();
                 System.Diagnostics.Debug.WriteLine($"Device {device.Address} connected");
                 //DeviceConnected(Application.Context, device.Name);
-                
+
             }
             else if (newState == ProfileState.Disconnected)
             {

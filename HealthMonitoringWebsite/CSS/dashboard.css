@@ -1,0 +1,71 @@
+main>section {
+    grid-template-rows: auto 1fr;
+    gap: var(--grid-gap-default);
+    background-color: white;
+}
+
+section > .content-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.875rem;
+}
+
+section > .content-header > section {
+    display: flex;
+    grid-column: 1/-1;
+} 
+
+section > .content-header > div {
+    padding: 1.875rem;
+    border-radius: 0.25rem;
+}
+
+section > .content-header > :nth-child(2) {
+    background-color: var(--color-green);
+}
+section > .content-header > :nth-child(3) {
+    background-color: var(--color-blue);
+}
+section > .content-header > :nth-child(4) {
+    background-color: var(--color-pink);
+}
+section > .content-header > :nth-child(5) {
+    background-color: var(--color-purple);
+}
+section > .content-header > :nth-child(6) {
+    background-color: var(--color-yellow);
+}
+
+
+section > .content-header > div > div {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+}
+
+section > .content-header > div > div > :first-child {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+section > .content-header > div > p {
+    color: white;
+}
+
+section > .content-header > div > div svg {
+    height: 1.8rem;
+    width: 1.8rem;
+    vertical-align: middle;
+}
+
+@media (max-width: 62.5rem){
+    main>section>.header-section {
+        grid-template-columns: 1fr;
+    }
+
+    #ContentSearch {
+        margin-left: 0;
+        width: 100%;
+    }
+}

@@ -1,0 +1,1656 @@
+/* Colors */
+
+.Bg-Primary {
+    color: var(--bg-color-primary);
+}
+
+.Bg-Secondary {
+    color: var(--bg-color-secondary);
+}
+
+.Bg-Ash {
+    background-color: #d5dee1;
+}
+
+.Bg-Green {
+    background-color: #00d25b;
+}
+
+.Bg-Yellow {
+    background-color: #ffab00;
+}
+
+.Bg-Blue {
+    background-color: #0090e7;
+}
+
+.Bg-Red {
+    background-color: #fc424a;
+}
+
+.Bg-Purple {
+    background-color: #8f5fe8;
+}
+
+.Bg-Pink {
+    background-color: #f72585;
+}
+
+
+/* Fill */
+
+.Fill-Primary {
+    fill: var(--color-primary);
+}
+
+.Fill-Secondary {
+    fill: var(--color-secondary);
+}
+
+.Fill-Ash {
+    fill: #d5dee1;
+}
+
+.Fill-Green {
+    fill: #00d25b;
+}
+
+.Fill-Yellow {
+    fill: #ffab00;
+}
+
+.Fill-Blue {
+    fill: #0090e7;
+}
+
+.Fill-Red {
+    fill: #fc424a;
+}
+
+.Fill-Purple {
+    fill: #8f5fe8;
+}
+
+.Fill-Pink {
+    fill: #f72585;
+}
+
+
+/* Font Color */
+
+.Text-Primary {
+    color: var(--color-primary);
+}
+
+.Text-Secondary {
+    color: var(--color-secondary);
+}
+
+.Text-Ash {
+    color: #d5dee1;
+}
+
+.Text-Green {
+    color: #00d25b;
+}
+
+.Text-Yellow {
+    color: #ffab00;
+}
+
+.Text-Blue {
+    color: #0090e7;
+}
+
+.Text-Red {
+    color: #fc424a;
+}
+
+.Text-Purple {
+    color: #8f5fe8;
+}
+
+.Text-Pink {
+    color: #f72585;
+}
+
+
+/* Buttons */
+
+/* Burger Button */
+
+.Solid-Button-Red {
+    background-color: #02c39a;
+    padding: .6rem 1.25rem;
+    border-radius: 2px;
+    font-weight: normal;
+    font-family: 'Nunito';
+    transition: 300ms ease;
+    font-size: .9rem;
+    font-weight: 600;
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+}
+
+.Solid-Button-Red:hover {
+    background-color: #ff7043;
+}
+
+/* Normal Button */
+
+/* Button Block */
+
+.DefaultButton {
+    appearance: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: var(--color-primary);
+}
+
+.Button-Green {
+    padding: 0.325rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-green);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: white;
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Green:hover {
+    background-color: #00b950;
+}
+
+.Button-Green:active {
+    outline: 0.2rem #00d25b80 solid;
+}
+
+.Button-Yellow {
+    padding: 0.325rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-yellow);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: white;
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Yellow:hover {
+    background-color: #e69a00;
+}
+
+.Button-Yellow:active {
+    outline: 0.2rem #ffab0080 solid;
+}
+
+.Button-Blue {
+    padding: 0.325rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-blue);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: white;
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Blue:hover {
+    background-color: #0080ce;
+}
+
+.Button-Blue:active {
+    outline: 0.2rem #0090e780 solid;
+}
+
+.Button-Red {
+    padding: 0.325rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-red);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: white;
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Red:hover {
+    background-color: #fc2932;
+}
+
+.Button-Red:active {
+    outline: 0.2rem #fc424a80 solid;
+}
+
+.Button-Purple {
+    padding: 0.325rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-purple);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: white;
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Purple:hover {
+    background-color: #7f49e5;
+}
+
+.Button-Purple:active {
+    outline: 0.2rem #8f5fe880 solid;
+}
+
+.Button-Pink {
+    padding: 0.325rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-pink);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: white;
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Pink:hover {
+    background-color: #f60c77;
+}
+
+.Button-Pink:active {
+    outline: 0.2rem #f7258580 solid;
+}
+
+.Button-Ash {
+    padding: 0.325rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-ash);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: var(--bg-color-primary);
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Ash:hover {
+    background-color: #c6d3d7;
+}
+
+.Button-Ash:active {
+    outline: 0.2rem #d5dee180 solid;
+}
+
+.Button-Custom {
+    padding: 0.325rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: #00b7d8;
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: var(--bg-color-primary);
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Custom:hover {
+    background-color: #0097b2;
+}
+
+.Button-Custom:active {
+    outline: 0.2rem #d5dee180 solid;
+}
+
+
+/* Button Icon */
+
+.Button-Green-Icon {
+    padding: .5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-green);
+    appearance: none;
+    cursor: pointer;
+    color: white;
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Green-Icon:hover {
+    background-color: #00b950;
+}
+
+.Button-Green-Icon:active {
+    outline: 0.2rem #00d25b80 solid;
+}
+
+.Button-Green-Icon>svg {
+    fill: white;
+    width: 1.5rem;
+    vertical-align: middle;
+}
+
+.Button-Yellow-Icon {
+    padding: .5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-yellow);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: white;
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Yellow-Icon:hover {
+    background-color: #e69a00;
+}
+
+.Button-Yellow-Icon:active {
+    outline: 0.2rem #ffab0080 solid;
+}
+
+.Button-Yellow-Icon>svg {
+    fill: white;
+    width: 1.5rem;
+    vertical-align: middle;
+}
+
+.Button-Blue-Icon {
+    padding: .5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-blue);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: white;
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Blue-Icon:hover {
+    background-color: #0080ce;
+}
+
+.Button-Blue-Icon:active {
+    outline: 0.2rem #0090e780 solid;
+}
+
+.Button-Blue-Icon>svg {
+    fill: white;
+    width: 1.5rem;
+    vertical-align: middle;
+}
+
+.Button-Red-Icon {
+    padding: .5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-red);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: white;
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Red-Icon:hover {
+    background-color: #fc2932;
+}
+
+.Button-Red-Icon:active {
+    outline: 0.2rem #fc424a80 solid;
+}
+
+.Button-Red-Icon>svg {
+    fill: white;
+    width: 1.5rem;
+    vertical-align: middle;
+}
+
+.Button-Purple-Icon {
+    padding: .5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-purple);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: white;
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Purple-Icon:hover {
+    background-color: #7f49e5;
+}
+
+.Button-Purple-Icon:active {
+    outline: 0.2rem #8f5fe880 solid;
+}
+
+.Button-Purple-Icon>svg {
+    fill: white;
+    width: 1.5rem;
+    vertical-align: middle;
+}
+
+.Button-Pink-Icon {
+    padding: .5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-pink);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: white;
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Pink-Icon:hover {
+    background-color: #f60c77;
+}
+
+.Button-Pink-Icon:active {
+    outline: 0.2rem #f7258580 solid;
+}
+
+.Button-Pink-Icon>svg {
+    fill: white;
+    width: 1.5rem;
+    vertical-align: middle;
+}
+
+.Button-Ash-Icon {
+    padding: .5rem;
+    border-radius: 0.25rem;
+    border: none;
+    outline: 0.2rem solid transparent;
+    background-color: var(--color-ash);
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: var(--bg-color-primary);
+    transition: border-color 200s ease-in-out, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Ash-Icon:hover {
+    background-color: #c6d3d7;
+}
+
+.Button-Ash-Icon:active {
+    outline: 0.2rem #d5dee180 solid;
+}
+
+.Button-Ash-Icon>svg {
+    fill: var(--bg-color-primary);
+    width: 1.5rem;
+    vertical-align: middle;
+}
+
+
+/* Button Outline */
+
+.Button-Green-Outline {
+    padding: 0.2rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: 0.115rem var(--color-green) solid;
+    outline: 0.2rem solid transparent;
+    background-color: transparent;
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: var(--color-green);
+    transition: color 200ms ease, background-color 200ms ease, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Green-Outline:hover {
+    background-color: var(--color-green);
+    color: #FFF;
+}
+
+.Button-Green-Outline:active {
+    outline: 0.2rem #00d25b80 solid;
+}
+
+.Button-Yellow-Outline {
+    padding: 0.2rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: 0.115rem var(--color-yellow) solid;
+    outline: 0.2rem solid transparent;
+    background-color: transparent;
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: var(--color-yellow);
+    transition: color 200ms ease, background-color 200ms ease, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Yellow-Outline:hover {
+    background-color: var(--color-yellow);
+    color: #FFF;
+}
+
+.Button-Yellow-Outline:active {
+    outline: 0.2rem #ffab0080 solid;
+}
+
+.Button-Blue-Outline {
+    padding: 0.2rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: 0.115rem var(--color-blue) solid;
+    outline: 0.2rem solid transparent;
+    background-color: transparent;
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: var(--color-blue);
+    transition: color 200ms ease, background-color 200ms ease, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Blue-Outline:hover {
+    background-color: var(--color-blue);
+    color: #FFF;
+}
+
+.Button-Blue-Outline:active {
+    outline: 0.2rem #0090e780 solid;
+}
+
+.Button-Red-Outline {
+    padding: 0.2rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: 0.115rem var(--color-red) solid;
+    outline: 0.2rem solid transparent;
+    background-color: transparent;
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: var(--color-red);
+    transition: color 200ms ease, background-color 200ms ease, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Red-Outline:hover {
+    background-color: var(--color-red);
+    color: #FFF;
+}
+
+.Button-Red-Outline:active {
+    outline: 0.2rem #fc424a80 solid;
+}
+
+.Button-Purple-Outline {
+    padding: 0.2rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: 0.115rem var(--color-purple) solid;
+    outline: 0.2rem solid transparent;
+    background-color: transparent;
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: var(--color-purple);
+    transition: color 200ms ease, background-color 200ms ease, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Purple-Outline:hover {
+    background-color: var(--color-purple);
+    color: #FFF;
+}
+
+.Button-Purple-Outline:active {
+    outline: 0.2rem #8f5fe880 solid;
+}
+
+.Button-Pink-Outline {
+    padding: 0.2rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: 0.115rem var(--color-pink) solid;
+    outline: 0.2rem solid transparent;
+    background-color: transparent;
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: var(--color-pink);
+    transition: color 200ms ease, background-color 200ms ease, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Pink-Outline:hover {
+    background-color: var(--color-pink);
+    color: #FFF;
+}
+
+.Button-Pink-Outline:active {
+    outline: 0.2rem #f7258580 solid;
+}
+
+.Button-Ash-Outline {
+    padding: 0.2rem 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    border: 0.115rem var(--color-ash) solid;
+    outline: 0.2rem solid transparent;
+    background-color: transparent;
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color: var(--color-ash);
+    transition: color 200ms ease, background-color 200ms ease, outline-color 200ms ease;
+    white-space: nowrap;
+}
+
+.Button-Ash-Outline:hover {
+    background-color: var(--color-ash);
+    color: var(--bg-color-primary);
+}
+
+.Button-Ash-Outline:active {
+    outline: 0.2rem #d5dee180 solid;
+}
+
+
+/* Textbox */
+
+/* Burger Textbox */
+
+.Solid-Textbox-Red {
+    display: flex;
+    border-radius: .4rem;
+    overflow: hidden;
+    background-color: #efefef;
+}
+
+.Solid-Textbox-Red>i {
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: #02c39a;
+    color: white;
+    width: 1rem;
+    text-align: center;
+}
+
+.Solid-Textbox-Red>input {
+    flex-grow: 1;
+    appearance: none;
+    outline: none;
+    border: none;
+    padding: 0 1rem;
+    font-size: 1rem;
+    border-radius: 0rem .4rem .4rem 0rem;
+    background-color: #efefef;
+}
+
+.Solid-Textbox-Red>input:focus {
+    border-top: 1px solid #02c39a;
+    border-right: 1px solid #02c39a;
+    border-bottom: 1px solid #02c39a;
+}
+
+/* Normal Textbox */
+
+.Textbox-Control {
+    font-family: 'Nunito';
+    display: block;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-border);
+    background-color: #2a3038;
+    outline: none;
+    box-sizing: border-box;
+    color: var(--color-primary);
+    transition: border-color 200s ease-in-out;
+}
+
+.Textbox-Control::placeholder {
+    font-family: 'Poppins';
+    color: var(--color-secondary);
+}
+
+header #SearchButton>svg {
+    padding: .2rem;
+}
+
+.Textbox-Icon-Container {
+    display: flex;
+}
+
+.Textbox-Icon-Container>input {
+    font-family: 'Nunito';
+    display: block;
+    padding: 0 1rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-border);
+    background-color: #2a3038;
+    box-sizing: border-box;
+    outline: none;
+    color: white;
+    transition: border-color 200s ease-in-out;
+}
+
+.Textbox-Icon-Container>input::placeholder {
+    font-family: 'Poppins';
+    color: var(--color-secondary);
+}
+
+.Textbox-Icon-Container>input:hover,
+.Textbox-Icon-Container>input:focus {
+    border-color: #306036;
+    outline-color: #306036;
+}
+
+.Textbox-Icon-Container>input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+    width: 30rem;
+}
+
+.Textbox-Icon-Container>button {
+    fill: var(--color-secondary);
+    height: 2.25rem;
+    width: 2.25rem;
+    border: 1px var(--color-border) solid;
+    border-radius: 0.25rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+}
+
+.Textbox-Icon-Container>button>svg {
+    padding: .2rem;
+}
+
+.Textbox-Control-Transparent {
+    font-family: 'Nunito';
+    display: block;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-border);
+    background-color: transparent;
+    box-sizing: border-box;
+    outline: none;
+    color: var(--color-primary);
+    transition: border-color 200s ease-in-out;
+}
+
+.Textbox-Control-Transparent::placeholder {
+    font-family: 'Poppins';
+    color: var(--color-secondary);
+}
+
+.Textbox-Control-Transparent:hover,
+.Textbox-Control-Transparent:focus {
+    border-color: #5865f2;
+    outline-color: #5865f2;
+}
+
+.Textbox-Control-Professional {
+    font-family: 'Poppins';
+    display: block;
+    padding: .2rem;
+    font-size: 1rem;
+    border-radius: 2px;
+    outline: #3354cc;
+    box-sizing: border-box;
+    /* Default width */
+    transition: border-color 200s ease-in-out;
+}
+
+.Textbox-Control-Professional::placeholder {
+    font-family: 'Poppins';
+    color: #999;
+}
+
+.Textbox-Control-Professional:hover,
+.Textbox-Control-Professional:focus {
+    border-color: #3354cc;
+}
+
+
+/* Status */
+
+.Status-Green {
+    padding: 0.4rem 1rem;
+    border-radius: .2rem;
+    background-color: var(--color-green-transparency);
+    color: var(--color-green);
+    text-align: center;
+    cursor: context-menu;
+}
+
+.Status-Yellow {
+    padding: 0.4rem 1rem;
+    border-radius: .2rem;
+    background-color: var(--color-yellow-transparency);
+    color: var(--color-yellow);
+    text-align: center;
+    cursor: context-menu;
+}
+
+.Status-Blue {
+    padding: 0.4rem 1rem;
+    border-radius: .2rem;
+    background-color: var(--color-blue-transparency);
+    color: var(--color-blue);
+    text-align: center;
+    cursor: context-menu;
+}
+
+.Status-Red {
+    padding: 0.4rem 1rem;
+    border-radius: .2rem;
+    background-color: var(--color-red-transparency);
+    color: var(--color-red);
+    text-align: center;
+    cursor: context-menu;
+}
+
+.Status-Purple {
+    padding: 0.4rem 1rem;
+    border-radius: .2rem;
+    background-color: var(--color-purple-transparency);
+    color: var(--color-purple);
+    text-align: center;
+    cursor: context-menu;
+}
+
+.Status-Pink {
+    padding: 0.4rem 1rem;
+    border-radius: .2rem;
+    background-color: var(--color-pink-transparency);
+    color: var(--color-pink);
+    text-align: center;
+    cursor: context-menu;
+}
+
+.Status-Ash {
+    padding: 0.4rem 1rem;
+    border-radius: .2rem;
+    background-color: var(--color-ash-transparency);
+    color: var(--color-ash);
+    text-align: center;
+    cursor: context-menu;
+}
+
+
+/* Table */
+
+.ListView-Control {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.2rem;
+    font-family: 'Poppins';
+    overflow: auto;
+    font-size: 1rem;
+    background-color: var(--bg-color-secondary);
+    border-radius: 0.25rem;
+}
+
+.ListView-Control thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.ListView-Control th,
+.ListView-Control td {
+    padding: 12px;
+    text-align: left;
+}
+
+.ListView-Control th {
+    position: relative;
+    background-color: #223C59;
+    color: var(--color-primary);
+    font-weight: bold;
+    transform: translateY(-.2rem);
+}
+
+.ListView-Control>thead>tr {
+    background-color: #223C59;
+}
+
+.ListView-Control>tbody>tr {
+    background-color: #2a2d3e;
+}
+
+.ListView-Control th:first-child,
+.ListView-Control td:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.ListView-Control th:last-child,
+.ListView-Control td:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.ListView-Control>tbody tr:hover {
+    background-color: var(--bg-color-frame);
+}
+
+
+/* Table Default */
+
+.ListView-Yellow {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0 0.2rem;
+    font-family: 'Poppins';
+    overflow: auto;
+    font-size: 1rem;
+    background-color: var(--bg-color-secondary);
+    border-radius: 0.25rem;
+}
+
+.ListView-Default thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.ListView-Default th,
+.ListView-Default td {
+    padding: 6px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-left: 1px solid var(--color-border);
+}
+
+.ListView-Default th {
+    border-top: 1px solid var(--color-border);
+    background-color: #223C59;
+    padding: 12px;
+}
+
+.ListView-Default th {
+    position: relative;
+    color: white;
+    font-weight: bold;
+}
+
+.ListView-Default td {
+    color: white;
+}
+
+.ListView-Default>tbody tr:hover {
+    background-color: var(--bg-color-frame);
+}
+
+/* End Default List */
+
+.ListView-Yellow {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0 0.2rem;
+    font-family: 'Poppins';
+    overflow: auto;
+    font-size: 1rem;
+    background-color: var(--bg-color-secondary);
+    border-radius: 0.25rem;
+}
+
+.ListView-Yellow thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.ListView-Yellow th,
+.ListView-Yellow td {
+    padding: 6px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-left: 1px solid var(--color-border);
+}
+
+.ListView-Yellow th {
+    border-top: 1px solid var(--color-border);
+    background-color: #feaf39;
+    padding: 12px;
+}
+
+.ListView-Yellow th {
+    position: relative;
+    color: black;
+    font-weight: bold;
+}
+
+.ListView-Yellow td {
+    color: white;
+}
+
+.ListView-Yellow>tbody tr:hover {
+    background-color: var(--bg-color-frame);
+}
+
+/* Version Control */
+
+.Version-Control {
+    width: 100%;
+    overflow: hidden;
+}
+
+.Version-Control>button {
+    appearance: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: var(--color-primary);
+    display: flex;
+    width: 100%;
+}
+
+.Version-Control>button.active,
+.Version-Control>button.active>div:nth-of-type(1)> :nth-child(3),
+.Version-Control>button.finished>div:nth-of-type(1)> :nth-child(3) {
+    background-color: var(--bg-color-side-list);
+}
+
+.Version-Control>button.active>div:nth-of-type(1)> :nth-child(3) {
+    background-color: var(--color-primary);
+}
+
+.Version-Control>button.finished>div:nth-of-type(1)> :nth-child(3) {
+    background-color: var(--color-purple);
+}
+
+.Version-Control>button:hover:not(.active),
+.Version-Control>button:hover:not(.active):not(.finished)>div:nth-of-type(1)> :nth-child(3) {
+    background-color: var(--bg-color-side-list);
+}
+
+.Version-Control>button>div:nth-of-type(1) {
+    width: 4rem;
+    height: 4rem;
+    min-width: 4rem;
+    min-height: 4rem;
+    position: relative;
+}
+
+.Version-Control>button:not(:first-child)>div:nth-of-type(1)> :nth-child(1) {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-purple);
+    height: 50%;
+}
+
+.Version-Control>button:not(:last-child)>div:nth-of-type(1)> :nth-child(2) {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 3px;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-purple);
+    height: 50%;
+}
+
+.Version-Control>button>div:nth-of-type(1)> :nth-child(3) {
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    width: .6rem;
+    height: .6rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color-secondary);
+    border: 3px solid var(--color-purple);
+}
+
+.Version-Control>button>div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 4rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid transparent;
+    width: 100%;
+    padding-right: 1rem;
+}
+
+.Version-Control>button:not(:last-child):not(.active):not(:hover)>div:nth-of-type(2) {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.Version-Control>button>div:nth-of-type(2)>p,
+.Version-Control>button>div:nth-of-type(2)>h3 {
+    font-weight: normal;
+    font-family: 'Rubik';
+    text-align: left;
+}
+
+.Version-Control>button>div:nth-of-type(2)>h3 {
+    color: var(--color-secondary);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 4rem);
+}
+
+
+/* Notification */
+
+#Notification-Bar {
+    display: none;
+    position: fixed;
+    text-align: center;
+    padding: .6rem 0;
+    z-index: 999;
+    width: 100%;
+}
+
+
+/* Popup */
+
+#Popup {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white
+}
+
+.Popup-Content {
+    background-color: var(--bg-color-secondary);
+    margin: auto;
+    padding: 1.25rem;
+    min-width: 25rem;
+    max-width: 25rem;
+    border-radius: 6px;
+}
+
+#Popup-Question {
+    margin-bottom: 10px;
+}
+
+.Popup-Buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+#Popup-Yes,
+#Popup-No {
+    margin-left: 10px;
+}
+
+
+/* Mini Toolkit */
+
+.fill {
+    width: 100%;
+}
+
+.width-min-content {
+    width: min-content;
+}
+
+.height-min-content {
+    height: min-content;
+}
+
+.display-inline {
+    display: flex;
+}
+
+.display-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap-1 {
+    gap: .25rem;
+}
+
+.min-width-1 {
+    min-width: 8rem;
+}
+
+.max-width-1 {
+    max-width: 8rem;
+}
+
+.max-width-2 {
+    max-width: 16rem;
+}
+
+.max-width-3 {
+    max-width: 24rem;
+}
+
+.truncate-text-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.horizontal-center-margin {
+    margin: 0 auto;
+}
+
+
+/* Michael */
+
+.Divider {
+    border-radius: 10px;
+    background-color: var(--bg-color-secondary);
+    padding: var(--grid-gap-default);
+}
+
+.Frame {
+    border-radius: 10px;
+    background-color: var(--bg-color-frame);
+    padding: var(--grid-gap-default);
+}
+
+.Title {
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.Optional {
+    font-style: italic;
+}
+
+.Modal-Close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Modal-Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: #223c59;
+    padding: 10px;
+    color: white;
+    z-index: 1;
+}
+
+/* Loading */
+
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #02c39a;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}
+
+.loading {
+    pointer-events: none;
+}
+
+/* Modals */
+
+.modal-container {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: 'Poppins';
+    /* Black w/ opacity */
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: #d1272c;
+    padding: 10px;
+    font-family: 'Poppins';
+    color: white;
+    z-index: 1;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    /* 15% from the top and centered */
+    border: 1px solid #888;
+    max-width: 80%;
+    max-height: 90vh;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.modal-close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+@media (max-width: 45rem) {
+    .modal-content {
+        max-width: 95%;
+    }
+}
+
+.modal-open {
+    overflow: hidden;
+}
+
+/* Custom Tag Picker Component */
+
+.Solid-Picker-Red {
+    display: flex;
+    border-radius: .4rem;
+    background-color: #efefef;
+}
+
+.Solid-Picker-Red>i {
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: #d1272c;
+    color: white;
+    width: 1rem;
+    text-align: center;
+    border-radius: .4rem 0 0 .4rem;
+}
+
+.Solid-Picker-Red>picker-component {
+    flex-grow: 1;
+    appearance: none;
+    outline: none;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    padding: 0 1rem;
+    font-size: 1rem;
+    border-radius: 0rem .4rem .4rem 0rem;
+    background-color: #efefef;
+}
+
+.Solid-Picker-Red>picker-component[open] {
+    border-top: 1px solid #d1272c;
+    border-right: 1px solid #d1272c;
+    border-bottom: 1px solid #d1272c;
+}
+
+picker-component,
+picker-pick-component,
+picker-item-component {
+    margin: 0px;
+    padding: 0px;
+}
+
+picker-component {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+picker-component>picker-item-container-component {
+    position: absolute;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+picker-component[open] picker-item-component {
+    display: block;
+}
+
+picker-component picker-pick-component {
+    display: block;
+    border-radius: 2px;
+    position: relative;
+    color: #757575;
+    margin: auto 0;
+}
+
+
+picker-component picker-pick-component:hover {
+    background-color: #eee;
+}
+
+picker-component picker-item-component {
+    display: none;
+    background-color: #fff;
+    padding: .5rem;
+    transition: 200ms ease;
+    color: black;
+}
+
+picker-component picker-item-component:hover {
+    background-color: #d1272c;
+    color: white;
+}
+
+/* Others */
+
+input[type="date"] {}
+
+::-webkit-calendar-picker-indicator {
+    background-color: transparent;
+    cursor: pointer;
+    color: #d1272c;
+}
+
+/* Animations */
+
+@keyframes ZoomIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3)
+    }
+
+    50% {
+        opacity: 1
+    }
+}
+
+@keyframes ZoomInDown {
+    0% {
+        opacity: 0;
+        transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);
+        animation-timing-function: cubic-bezier(.55, .055, .675, .19)
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+        animation-timing-function: cubic-bezier(.175, .885, .32, 1)
+    }
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes FadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0)
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes FadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -10%, 0)
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes FadeInRight {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0)
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes Rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* For loading */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
