@@ -72,6 +72,9 @@ namespace HealthMonitoring.ViewModels
                 Services.UserManager.User.Email = userCredential.User.Info.Email;
 
                 await Application.Current.MainPage.Navigation.PushAsync(new MainMenu());
+
+                Email = string.Empty;
+                Password = string.Empty;
             }
             catch (FirebaseAuthException ex)
             {

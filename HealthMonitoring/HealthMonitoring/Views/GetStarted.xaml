@@ -23,7 +23,7 @@
                 <lottie:AnimationView HeightRequest="400" WidthRequest="400" AnimationSource="AssetOrBundle" Animation="GetStarted.json" RepeatMode="Infinite" AutoPlay="True" />
             </StackLayout>
             <StackLayout Grid.Row="1" Padding="35,0" Spacing="0">
-                <Label Text="Health Monitoring" FontSize="28" FontFamily="PoppinsBold" TextColor="#f0f3bd" FontAttributes="Bold" Margin="0,0,0,30"/>
+                <Label Text="FitHealth" FontSize="28" FontFamily="PoppinsBold" TextColor="#f0f3bd" FontAttributes="Bold" Margin="0,0,0,30"/>
                 <Label Text="Manage your health by monitoring your vitals" FontSize="18" FontFamily="PoppinsRegular" TextColor="White"/>
                 <Label Text="seemlessly &amp; intuitively" FontSize="24" FontFamily="PoppinsBold" TextColor="#f0f3bd" FontAttributes="Bold" Margin="0,0,0,30"/>
 

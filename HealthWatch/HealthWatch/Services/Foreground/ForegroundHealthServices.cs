@@ -93,14 +93,14 @@ namespace HealthWatch.Services.Foreground
             {
                 if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
                 {
-                    var channel = new NotificationChannel(ChannelID, "Health Monitoring", NotificationImportance.High);
+                    var channel = new NotificationChannel(ChannelID, "FitHealth", NotificationImportance.High);
                     NotificationManager = GetSystemService(NotificationService) as NotificationManager;
                     NotificationManager.CreateNotificationChannel(channel);
                 }
 
                 var notification = new NotificationCompat.Builder(this, ChannelID)
                     .SetSmallIcon(Resource.Mipmap.ic_launcher)
-                    .SetContentTitle("Health Monitoring")
+                    .SetContentTitle("FitHealth")
                     .SetContentText("Monitoring your vitals")
                     .SetOngoing(true)
                     .SetChannelId(ChannelID)
