@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.dacer.healthmonitoring" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33" />
-	<application android:label="Health Monitoring" android:theme="@style/MainTheme" android:icon="@mipmap/ic_launcher"></application>
+	<application android:label="FitHealth" android:theme="@style/MainTheme" android:icon="@mipmap/ic_launcher"></application>
 	<uses-feature android:name="android.hardware.bluetooth" android:required="true" />
 	<uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
 	<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
