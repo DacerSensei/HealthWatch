@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthMonitoring.Views.DontAndDo"
+             xmlns:local="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+    <ContentPage.BindingContext>
+        <ViewModel:DontAndDoViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Background>
+        <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#028090" Offset="0.0"/>
+            <GradientStop Color="#02c39a" Offset=".5"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
+                <Label TextColor="White" FontFamily="PoppinsBold" Grid.Row="1" Text="Do's And Don'ts" FontSize="Title" HorizontalTextAlignment="Center" />
+                <Button Grid.Row="2" Command="{Binding GoBackCommand}" TextColor="White" Background="#d83c3e" Text="Go Back" CornerRadius="4" xct:TouchEffect.NativeAnimation="True" Margin="25,50,25,0" VerticalOptions="EndAndExpand"/>
+
+                <Frame Margin="5" CornerRadius="8">
+                    <StackLayout >
+                        <Label Text="Do's and don’ts for good health Monitoring" TextColor="Black" FontFamily="PoppinsRegular" />
+                        <Label Text="Do's:" TextColor="Black" FontFamily="PoppinsBold" />
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do prioritize a balanced diet: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Consume a variety of nutrient-rich foods, including fruits, vegetables, whole grains, lean proteins, and healthy fats, to ensure your body gets the essential nutrients it needs." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do stay hydrated: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Drink an adequate amount of water throughout the day to support proper bodily functions and maintain overall health." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do engage in regular physical activity: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Aim for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity activity each week, along with muscle-strengthening exercises twice a week." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do get enough sleep: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Aim for 7-9 hours of quality sleep each night to support physical and mental well-being." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do manage stress: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Practice stress management techniques such as exercise, meditation, deep breathing, or engaging in hobbies to reduce stress levels and promote overall wellness." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do maintain a healthy weight: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Strive to maintain a healthy body weight through a combination of balanced nutrition and regular physical activity." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do practice good hygiene: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Follow good hygiene practices, including proper handwashing, regular bathing, and dental care, to prevent the spread of germs and maintain personal cleanliness." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="Dont's:" TextColor="Black" FontFamily="PoppinsBold" />
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Don't rely on processed foods: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Limit the consumption of processed and packaged foods, as they are often high in added sugars, unhealthy fats, and sodium." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Don't skip meals: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Avoid skipping meals" FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="5" CornerRadius="8">
+                    <StackLayout >
+                        <Label Text="Dos and don’ts for monitoring calories" TextColor="Black" FontFamily="PoppinsRegular" />
+                        <Label Text="Do's:" TextColor="Black" FontFamily="PoppinsBold" />
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do prioritize nutrient-dense foods: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Focus on consuming foods that are rich in essential nutrients, such as fruits, vegetables, whole grains, lean proteins, and healthy fats. These foods provide important vitamins, minerals, and fiber while being relatively lower in calories." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do practice portion control: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Be mindful of portion sizes to ensure you're consuming an appropriate number of calories. Use measuring cups, food scales, or visual cues to help you gauge portion sizes accurately." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do listen to your body: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Pay attention to your body's hunger and fullness cues. Eat when you're hungry and stop eating when you're comfortably satisfied, rather than eating until you're overly full." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do include a variety of foods: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Aim for a diverse range of foods in your diet to ensure you're getting a wide array of nutrients. This can help prevent nutrient deficiencies while keeping your calorie intake in check." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do incorporate healthy snacks: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Choose nutritious snacks, such as fruits, vegetables, nuts, or yogurt, to keep you satisfied between meals without excessive calorie intake." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="Dont's:" TextColor="Black" FontFamily="PoppinsBold" />
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Don't rely on highly processed or sugary foods: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Minimize your consumption of foods that are high in added sugars, unhealthy fats, and empty calories. These include sugary drinks, desserts, fried foods, and processed snacks." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="5" CornerRadius="8">
+                    <StackLayout >
+                        <Label Text="Here are some dos and don'ts for incorporating exercise into your routine:" TextColor="Black" FontFamily="PoppinsRegular" />
+                        <Label Text="Do's:" TextColor="Black" FontFamily="PoppinsBold" />
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do choose activities you enjoy: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Find physical activities that you genuinely enjoy doing. This will increase your motivation and make exercise feel less like a chore." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do set realistic goals: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Set realistic and attainable goals for your exercise routine. Start with small, achievable goals and gradually increase the intensity or duration as you progress." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do warm up and cool down: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Always begin your exercise session with a proper warm-up to prepare your body for activity, and end with a cool-down to gradually bring your heart rate and breathing back to normal." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do vary your workouts: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Incorporate a variety of exercises into your routine to work different muscle groups and prevent boredom. This can include cardiovascular exercises, strength training, flexibility exercises, and balance training." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do listen to your body: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Pay attention to how your body feels during exercise. If something feels uncomfortable or painful, modify the exercise or seek professional advice to prevent injury." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="Dont's:" TextColor="Black" FontFamily="PoppinsBold" />
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Don't skip warm-ups and cool-downs: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Neglecting warm-up and cool-down exercises increases the risk of injury and can lead to muscle soreness." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Don't overdo it: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Avoid pushing yourself too hard too quickly, especially if you're new to exercise or returning after a break. Gradually increase the intensity and duration of your workouts to prevent overexertion and injuries" FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="5" CornerRadius="8">
+                    <StackLayout >
+                        <Label Text="Here are some dos and don'ts for maintaining better blood pressure:" TextColor="Black" FontFamily="PoppinsRegular" />
+                        <Label Text="Do's:" TextColor="Black" FontFamily="PoppinsBold" />
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do maintain a healthy weight: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Aim for a healthy weight range for your height and body type. Losing excess weight can help lower your blood pressure." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do engage in regular physical activity: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Incorporate regular aerobic exercise, such as brisk walking, swimming, or cycling, into your routine. Aim for at least 150 minutes of moderate-intensity exercise per week." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do follow a balanced diet: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Consume a diet rich in fruits, vegetables, whole grains, lean proteins, and low-fat dairy products. Limit your intake of saturated and trans fats, sodium, and added sugars." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do reduce sodium intake: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Limit your sodium intake to no more than 2,300 milligrams (mg) per day. This can be achieved by avoiding processed foods, using herbs and spices for flavor instead of salt, and reading food labels for sodium content." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do manage stress: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Find healthy ways to manage stress, such as practicing relaxation techniques, engaging in hobbies, or seeking support from friends and family. Chronic stress can contribute to high blood pressure." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="Dont's:" TextColor="Black" FontFamily="PoppinsBold" />
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Don't consume excessive alcohol: " FontFamily="PoppinsBold"/>
+                                    <Span Text="Limit your alcohol intake to moderate levels. For men, this means no more than two drinks per day, and for women, no more than one drink per day. Excessive alcohol consumption can raise blood pressure." FontFamily="PoppinsRegular"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

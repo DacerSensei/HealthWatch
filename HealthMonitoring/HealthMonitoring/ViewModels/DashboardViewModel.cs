@@ -74,7 +74,7 @@ namespace HealthMonitoring.ViewModels
         public ICommand DoCommand { get; }
         private async Task DoExecute()
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new HeartMonitor());
+            await Application.Current.MainPage.Navigation.PushModalAsync(new DontAndDo());
         }
 
         public ICommand ExerciseCommand { get; }
@@ -86,7 +86,7 @@ namespace HealthMonitoring.ViewModels
         public ICommand FoodManagementCommand { get; }
         private async Task FoodManagementExecute()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new FoodManagement());
+            await Application.Current.MainPage.Navigation.PushModalAsync(new FoodManagement());
         }
 
         public string GoalPercentage

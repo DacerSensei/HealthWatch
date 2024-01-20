@@ -111,7 +111,7 @@
                             </LinearGradientBrush>
                         </Frame.Background>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer  />
+                            <TapGestureRecognizer  Command="{Binding DoCommand}"/>
                         </Frame.GestureRecognizers>
                         <Grid RowDefinitions="Auto,Auto,Auto">
                             <lottie:AnimationView Animation="Do.json" HeightRequest="200" WidthRequest="200" AnimationSource="AssetOrBundle" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
