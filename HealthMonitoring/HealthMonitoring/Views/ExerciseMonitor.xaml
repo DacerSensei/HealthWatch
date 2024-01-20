@@ -1,12 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HealthMonitoring.Views.ExerciseMonitor">
+             x:Class="HealthMonitoring.Views.ExerciseMonitor"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:local="clr-namespace:HealthMonitoring"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+             xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
+             xmlns:UserManager="clr-namespace:HealthMonitoring.Services"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Background>
+        <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#028090" Offset="0.0"/>
+            <GradientStop Color="#02c39a" Offset=".5"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.BindingContext>
+        <ViewModel:ExerciseMonitorViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior EventName="Appearing" Command="{Binding LoadedCommand}" />
+    </ContentPage.Behaviors>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
+                <Label TextColor="White" FontFamily="PoppinsBold" Grid.Row="1" Text="Exercuse Monitoring" FontSize="Title" HorizontalTextAlignment="Center" />
+                <Frame xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="0">
+                        <Label TextColor="Black" Text="Calories" FontFamily="PoppinsBold" FontSize="Medium" />
+                        <Label TextColor="Black" Text="{Binding TotalCalories}" FontFamily="PoppinsBold" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="End" />
+                    </Grid>
+                </Frame>
+                <Frame xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="0">
+                        <Label TextColor="Black" Text="Water" FontFamily="PoppinsBold" FontSize="Medium" />
+                        <Label TextColor="Black" Text="{Binding Water}" FontFamily="PoppinsBold" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="End" />
+                    </Grid>
+                </Frame>
+                <Frame xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="0">
+                        <Label TextColor="Black" Text="Work Out Session" FontFamily="PoppinsBold" FontSize="Medium" />
+                        <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="End" >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding WorkOutSession}" />
+                                    <Span Text=" Per Hour" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+                </Frame>
+                <Button Grid.Row="2" Command="{Binding GoBackCommand}" TextColor="White" Background="#d83c3e" Text="Go Back" CornerRadius="4" xct:TouchEffect.NativeAnimation="True" Margin="25,50,25,0" VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

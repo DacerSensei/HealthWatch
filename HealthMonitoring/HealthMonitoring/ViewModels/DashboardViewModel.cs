@@ -80,7 +80,7 @@ namespace HealthMonitoring.ViewModels
         public ICommand ExerciseCommand { get; }
         private async Task ExerciseExecute()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new ExerciseMonitor());
+            await Application.Current.MainPage.Navigation.PushModalAsync(new ExerciseMonitor());
         }
 
         public ICommand FoodManagementCommand { get; }

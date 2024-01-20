@@ -21,9 +21,6 @@ namespace HealthMonitoring.ViewModels
             LoadedCommand = new AsyncCommand(LoadedExecute);
         }
 
-        IBluetoothService bluetoothService = DependencyService.Get<IBluetoothService>();
-
-
         public ICommand GoBackCommand { get; }
         private async Task GoBackExecute()
         {

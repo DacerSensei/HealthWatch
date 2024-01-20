@@ -15,5 +15,11 @@ namespace HealthMonitoring.Models
 
         [JsonProperty("BodyComposition")]
         public string BodyComposition { get; set; }
+
+        [JsonProperty("Water")]
+        public string Water { get; set; }
+
+        [JsonProperty("WorkOutSession")]
+        public string WorkOutSession { get; set; }
     }
 }
