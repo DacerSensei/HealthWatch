@@ -24,6 +24,8 @@ namespace HealthMonitoring.ViewModels
             HeartRateCommand = new AsyncCommand(HeartRateExecute);
             FitnessCommand = new AsyncCommand(FitnessExecute);
             DoCommand = new AsyncCommand(DoExecute);
+            ExerciseCommand = new AsyncCommand(ExerciseExecute);
+            FoodManagementCommand = new AsyncCommand(FoodManagementExecute);
             UserManager.User.CurrentGoalChanged += User_CurrentGoalChanged;
             UserManager.User.DataSensors.StepCounterChanged += User_CurrentGoalChanged;
             GoalComplete += GoalCompleteEvent;
@@ -73,6 +75,18 @@ namespace HealthMonitoring.ViewModels
         private async Task DoExecute()
         {
             await Application.Current.MainPage.Navigation.PushModalAsync(new HeartMonitor());
+        }
+
+        public ICommand ExerciseCommand { get; }
+        private async Task ExerciseExecute()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new ExerciseMonitor());
+        }
+
+        public ICommand FoodManagementCommand { get; }
+        private async Task FoodManagementExecute()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new FoodManagement());
         }
 
         public string GoalPercentage

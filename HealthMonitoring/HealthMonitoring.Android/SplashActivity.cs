@@ -6,7 +6,7 @@ using Com.Airbnb.Lottie;
 
 namespace HealthMonitoring.Droid
 {
-    [Activity(Theme = "@style/Theme.Splash", MainLauncher = true, NoHistory = false)]
+    [Activity(Theme = "@style/Theme.Splash", MainLauncher = false, NoHistory = false)]
     public class SplashActivity : Activity, Animator.IAnimatorListener
     {
         protected override void OnCreate(Bundle savedInstanceState)

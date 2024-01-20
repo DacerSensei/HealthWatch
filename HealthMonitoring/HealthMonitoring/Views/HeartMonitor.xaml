@@ -17,26 +17,56 @@
     <ContentPage.BindingContext>
         <ViewModel:HeartMonitorViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior EventName="Appearing" Command="{Binding LoadedCommand}" />
+    </ContentPage.Behaviors>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
-            <Label TextColor="White" FontFamily="PoppinsBold" Grid.Row="1" Text="Heart Monitoring" FontSize="Title" HorizontalTextAlignment="Center" />
-            <Frame Padding="0,0,0,10" xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
-                <Grid RowDefinitions="Auto,Auto,Auto">
-                    <lottie:AnimationView Animation="HeartRate.json" HeightRequest="200" WidthRequest="200" AnimationSource="AssetOrBundle" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
+                <Label TextColor="White" FontFamily="PoppinsBold" Grid.Row="1" Text="Heart Monitoring" FontSize="Title" HorizontalTextAlignment="Center" />
+                <Frame Padding="0,0,0,10" xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                    <Grid RowDefinitions="Auto,Auto,Auto">
+                        <lottie:AnimationView Animation="HeartRate.json" HeightRequest="200" WidthRequest="200" AnimationSource="AssetOrBundle" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
                                               AutoPlay="True" RepeatMode="Infinite"/>
-                    <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Row="1" FontSize="50" HorizontalTextAlignment="Center"  BindingContext="{Binding Source={x:Static UserManager:UserManager.User}}">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <FormattedString.Spans>
-                                    <Span Text="{Binding DataSensors.HeartRateSensor}"/>
-                                    <Span Text=" BPM"/>
-                                </FormattedString.Spans>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                </Grid>
-            </Frame>
-            <Button Grid.Row="2" Command="{Binding GoBackCommand}" TextColor="White" Background="#d83c3e" Text="Go Back" CornerRadius="4" xct:TouchEffect.NativeAnimation="True" Margin="25,50,25,0" VerticalOptions="EndAndExpand"/>
-        </StackLayout>
+                        <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Row="1" FontSize="50" HorizontalTextAlignment="Center"  BindingContext="{Binding Source={x:Static UserManager:UserManager.User}}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="{Binding DataSensors.HeartRateSensor}"/>
+                                        <Span Text=" BPM"/>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+                </Frame>
+                <Frame xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="0">
+                        <Label TextColor="Black" Text="Blood Pressure" FontFamily="PoppinsBold" FontSize="Medium" />
+                        <Label TextColor="Black" Text="{Binding BloodPressure}" FontFamily="PoppinsBold" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="End" />
+                    </Grid>
+                </Frame>
+                <Frame xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="0">
+                        <Label TextColor="Black" Text="Body Composition" FontFamily="PoppinsBold" FontSize="Medium" />
+                        <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="End" >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding BodyComposition}"/>
+                                    <Span Text=" Kg"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+                </Frame>
+                <Frame xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="0">
+                        <Label TextColor="Black" Text="Blood Oxygen" FontFamily="PoppinsBold" FontSize="Medium" />
+                        <Label TextColor="Black" Text="{Binding BloodOxygen}" FontFamily="PoppinsBold" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="End" />
+                    </Grid>
+                </Frame>
+                <Button Grid.Row="2" Command="{Binding GoBackCommand}" TextColor="White" Background="#d83c3e" Text="Go Back" CornerRadius="4" xct:TouchEffect.NativeAnimation="True" Margin="25,50,25,0" VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

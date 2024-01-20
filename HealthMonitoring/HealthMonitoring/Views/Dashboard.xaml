@@ -74,6 +74,38 @@
                     <Frame Padding="0,0,0,10" xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
                         <Frame.Background>
                             <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#023e8a" Offset="0.0"/>
+                                <GradientStop Color="#00b4d8" Offset=".5"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ExerciseCommand}" />
+                        </Frame.GestureRecognizers>
+                        <Grid RowDefinitions="Auto,Auto,Auto">
+                            <Image WidthRequest="180" HeightRequest="180" Source="Exercise.png" Margin="20"/>
+                            <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Row="1" Text="Exercise" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                            <Label TextColor="Black" FontFamily="PoppinsRegular" Grid.Row="2" Text="Monitor your work out sessions" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                        </Grid>
+                    </Frame>
+                    <Frame Padding="0,0,0,10" xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                        <Frame.Background>
+                            <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#dc2f02" Offset="0.0"/>
+                                <GradientStop Color="#faa307" Offset=".5"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding FoodManagementCommand}" />
+                        </Frame.GestureRecognizers>
+                        <Grid RowDefinitions="Auto,Auto,Auto">
+                            <Image WidthRequest="180" HeightRequest="180" Source="FoodManagement.png" Margin="20"/>
+                            <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Row="1" Text="Food Management" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                            <Label TextColor="Black" FontFamily="PoppinsRegular" Grid.Row="2" Text="Let's monitor your calories" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                        </Grid>
+                    </Frame>
+                    <Frame Padding="0,0,0,10" xct:TouchEffect.NativeAnimation="True" Margin="5" CornerRadius="8">
+                        <Frame.Background>
+                            <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1">
                                 <GradientStop Color="#1abf32" Offset="0.0"/>
                                 <GradientStop Color="#7ce195" Offset=".5"/>
                             </LinearGradientBrush>
@@ -85,7 +117,7 @@
                             <lottie:AnimationView Animation="Do.json" HeightRequest="200" WidthRequest="200" AnimationSource="AssetOrBundle" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
                                               AutoPlay="True" RepeatMode="Infinite"/>
                             <Label TextColor="Black" FontFamily="PoppinsBold" Grid.Row="1" Text="Do's and Don'ts" FontSize="Subtitle" HorizontalTextAlignment="Center" />
-                            <Label TextColor="Black" FontFamily="PoppinsRegular" Grid.Row="2" Text="Let's check your heart" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                            <Label TextColor="Black" FontFamily="PoppinsRegular" Grid.Row="2" Text="Your do's and don'ts" FontSize="Subtitle" HorizontalTextAlignment="Center" />
                         </Grid>
                     </Frame>
                 </StackLayout>

@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
-             x:Class="HealthMonitoring.Views.GoalsMonitor"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthMonitoring.Views.FoodManagement"
              xmlns:UserManager="clr-namespace:HealthMonitoring.Services" 
-             xmlns:local="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="White">
     <ContentPage.BindingContext>
-        <ViewModel:GoalsMonitorViewModel />
+        <ViewModel:FoodManagementViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Behaviors>
         <local:EventToCommandBehavior EventName="Appearing" Command="{Binding LoadedCommand}" />
@@ -19,12 +19,12 @@
                 <Button Text="Back" Command="{Binding BackCommand}" TextColor="White" Margin="10" CornerRadius="4" Padding="5" Background="#d83c3e" HorizontalOptions="Start"/>
                 <Button Text="Add" Command="{Binding AddCommand}" TextColor="White" Margin="10" CornerRadius="4" Padding="5" Background="#1eb980" HorizontalOptions="EndAndExpand"/>
             </StackLayout>
-            <CollectionView Grid.Row="1" ItemsSource="{Binding GoalsList}" x:Name="MyList">
+            <CollectionView Grid.Row="1" ItemsSource="{Binding CaloriesList}" x:Name="MyList">
                 <CollectionView.Header>
-                    <Label FontFamily="PoppinsRegular" Text="Fitness" FontSize="Title" TextColor="Black" HorizontalTextAlignment="Center" />
+                    <Label FontFamily="PoppinsRegular" Text="Food Management" FontSize="Title" TextColor="Black" HorizontalTextAlignment="Center" />
                 </CollectionView.Header>
                 <CollectionView.EmptyView>
-                    <Label Text="Empty Goals" TextColor="Black" FontSize="Subtitle" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="Empty Calorie Goals" TextColor="Black" FontSize="Subtitle" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                 </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -37,8 +37,8 @@
                                                 <Label.FormattedText>
                                                     <FormattedString>
                                                         <FormattedString.Spans>
-                                                            <Span Text="{Binding TotalSteps}"/>
-                                                            <Span Text=" Steps"/>
+                                                            <Span Text="{Binding GoalCalorie}"/>
+                                                            <Span Text=" Calories"/>
                                                         </FormattedString.Spans>
                                                     </FormattedString>
                                                 </Label.FormattedText>
@@ -57,7 +57,7 @@
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
-                                        <Label Grid.Row="1" TextColor="black">
+                                        <!--<Label Grid.Row="1" TextColor="black">
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <FormattedString.Spans>
@@ -66,14 +66,14 @@
                                                     </FormattedString.Spans>
                                                 </FormattedString>
                                             </Label.FormattedText>
-                                        </Label>
+                                        </Label>-->
                                         <Label Grid.Column="1" TextColor="black">
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <FormattedString.Spans>
                                                         <Span Text="Goal: "/>
-                                                        <Span Text="{Binding TotalSteps}"/>
-                                                        <Span Text=" Steps"/>
+                                                        <Span Text="{Binding GoalCalorie}"/>
+                                                        <Span Text=" Calories"/>
                                                     </FormattedString.Spans>
                                                 </FormattedString>
                                             </Label.FormattedText>
@@ -82,14 +82,14 @@
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <FormattedString.Spans>
-                                                        <Span Text="Progress: "/>
-                                                        <Span Text="{Binding StepsTaken}"/>
-                                                        <Span Text=" Steps"/>
+                                                        <Span Text="Calories Taken: "/>
+                                                        <Span Text="{Binding CalorieTaken}"/>
+                                                        <Span Text=" Calories"/>
                                                     </FormattedString.Spans>
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
-                                        <Button Grid.Row="2" BackgroundColor="{Binding Source={x:Reference MyList}, Path=BindingContext.StepModeColor}" Margin="0,20,0,0" Text="{Binding Source={x:Reference MyList}, Path=BindingContext.StepMode}" TextColor="White" IsVisible="{Binding IsCompleted}" Command="{Binding Source={x:Reference MyList}, Path=BindingContext.StartGoalCommand}"/>
+                                        <Button Grid.Row="2" BackgroundColor="#1eb980" Margin="0,20,0,0" Text="Add Calories" TextColor="White" IsVisible="{Binding IsCompleted}" Command="{Binding Source={x:Reference MyList}, Path=BindingContext.AddGoalTakenCommand}" CommandParameter="{Binding .}"/>
                                         <Button Grid.Row="2" Grid.Column="1" Background="#d83c3e" Margin="0,20,0,0" TextColor="White" Command="{Binding Source={x:Reference MyList}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}" Text="Delete" IsVisible="{Binding IsCompleted}"/>
                                     </Grid>
                                 </local:Expander>
