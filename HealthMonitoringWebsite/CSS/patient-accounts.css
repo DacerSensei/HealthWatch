@@ -1,0 +1,101 @@
+#View-Modal .modal-body {
+    display: grid;
+    grid-template-areas: 'personal-information ...'
+        'sensors sensors'
+        'fitness calories';
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+    column-gap: 1rem;
+}
+
+#View-Modal .modal-body> :nth-child(1) {
+    grid: personal-information;
+}
+
+#View-Modal .modal-body> :nth-child(1)>div> :nth-child(1) {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#View-Modal .modal-body> :nth-child(1)>div> :nth-child(2) {
+    font-size: 1.2rem;
+}
+
+
+#View-Modal .modal-body> :nth-child(2) {
+    grid-area: sensors;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.875rem;
+}
+
+#View-Modal .modal-body> :nth-child(2)>h2 {
+    grid-column: 1 / -1;
+}
+
+#View-Modal .modal-body> :nth-child(2)>div {
+    padding: 1.875rem;
+    border-radius: 0.25rem;
+}
+
+#View-Modal .modal-body> :nth-child(2)>div {
+    background-color: var(--color-ash);
+}
+
+
+#View-Modal .modal-body> :nth-child(2)>div>div {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+}
+
+#View-Modal .modal-body> :nth-child(2)>div>div> :first-child {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+#View-Modal .modal-body> :nth-child(2)>div>p {
+    color: black;
+}
+
+#View-Modal .modal-body> :nth-child(3) {
+    grid-area: fitness;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#View-Modal .modal-body> :nth-child(3)>div {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background-color: var(--color-ash);
+}
+
+
+#View-Modal .modal-body> :nth-child(3)>div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .2rem;
+}
+
+#View-Modal .modal-body> :nth-child(4) {
+    grid-area: calories;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#View-Modal .modal-body> :nth-child(4)>div {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background-color: var(--color-ash);
+}
+
+
+#View-Modal .modal-body> :nth-child(4)>div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .2rem;
+}

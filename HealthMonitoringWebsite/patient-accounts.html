@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="/CSS/Toolkit.css">
     <link rel="stylesheet" href="/CSS/main.css">
     <link rel="stylesheet" href="/CSS/accounts.css">
+    <link rel="stylesheet" href="/CSS/patient-accounts.css">
 </head>
 
 <body>
-    <div id="Add-Modal" class="modal-container">
+    <div id="View-Modal" class="modal-container">
         <div class="modal-content" style="width: -webkit-fill-available; height: -webkit-fill-available;">
             <div class="modal-header">
                 <h4>View Patient Information</h4>
@@ -22,7 +23,123 @@
             </div>
             <div class="modal-body" style="padding: 1rem; box-sizing: border-box;">
                 <!-- Content Below Here -->
-                
+                <!-- 1st row-->
+                <div>
+                    <div>
+                        <span>Name: </span>
+                        <span id="CompleteName"></span>
+                    </div>
+                    <div>
+                        <span>Contact: </span>
+                        <span id="Contact"></span>
+                    </div>
+                    <div>
+                        <span>Gender: </span>
+                        <span id="Gender"></span>
+                    </div>
+                    <div>
+                        <span>Birthday: </span>
+                        <span id="Birthday"></span>
+                    </div>
+                    <div>
+                        <span>Height: </span>
+                        <span id="Height"></span>
+                    </div>
+                    <div>
+                        <span>Weight: </span>
+                        <span id="Weight"></span>
+                    </div>
+                </div>
+                <!-- 2nd row-->
+                <div>
+                    <h2>Patient Vitals</h2>
+                    <div>
+                        <div>
+                            <span>
+                                <h2 id="HeartRateSensor"></h2>
+                            </span>
+                        </div>
+                        <p class="Text-Secondary">Heart Rate</p>
+                    </div>
+                    <div>
+                        <div>
+                            <span>
+                                <h2 id="SmartWatchStatus"></h2>
+                            </span>
+                        </div>
+                        <p class="Text-Secondary">Smart Watch</p>
+                    </div>
+                    <div>
+                        <div>
+                            <span>
+                                <h2 id="StepSensor"></h2>
+                            </span>
+                        </div>
+                        <p class="Text-Secondary">Steps</p>
+                    </div>
+                    <div>
+                        <div>
+                            <span>
+                                <h2 id="BloodOxygen">0</h2>
+                            </span>
+                        </div>
+                        <p class="Text-Secondary">Blood Oxygen</p>
+                    </div>
+                    <div>
+                        <div>
+                            <span>
+                                <h2 id="BloodPressure">0</h2>
+                            </span>
+                        </div>
+                        <p class="Text-Secondary">Blood Pressure</p>
+                    </div>
+                    <div>
+                        <div>
+                            <span>
+                                <h2 id="BodyComposition">0</h2>
+                            </span>
+                        </div>
+                        <p class="Text-Secondary">Body Composition</p>
+                    </div>
+                    <div>
+                        <div>
+                            <span>
+                                <h2 id="Water">0</h2>
+                            </span>
+                        </div>
+                        <p class="Text-Secondary">Water</p>
+                    </div>
+                    <div>
+                        <div>
+                            <span>
+                                <h2 id="WorkOutSession">0</h2>
+                            </span>
+                        </div>
+                        <p class="Text-Secondary">Work Out Session</p>
+                    </div>
+                </div>
+                <!-- 3rd row 1st column-->
+                <div>
+                    <h2>Fitness Goals</h2>
+                    <!-- Fill using js -->
+                </div>
+                <!-- 3rd row 2nd column-->
+                <div>
+                    <h2>Calories Goals</h2>
+                    <!-- Fill using js -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Chat-Modal" class="modal-container">
+        <div class="modal-content" style="width: -webkit-fill-available; height: -webkit-fill-available;">
+            <div class="modal-header">
+                <h4>Chat Patient</h4>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body" style="padding: 1rem; box-sizing: border-box;">
+                <!-- Content Below Here -->
+
             </div>
         </div>
     </div>
