@@ -149,6 +149,8 @@ table.addEventListener("click", async (event) => {
         const hiddenInput = row.querySelector("input[type='hidden']");
         const id = hiddenInput.value;
         ShowLoading();
+        document.querySelector("#View-Modal .modal-body> :nth-child(3)").innerHTML = "";
+        document.querySelector("#View-Modal .modal-body> :nth-child(4)").innerHTML = "";
         try {
             await get(child(ref(Database), 'users/' + id)).then(async (userSnapshot) => {
                 const data = userSnapshot.val();
