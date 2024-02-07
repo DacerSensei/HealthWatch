@@ -709,6 +709,26 @@
 
 /* Textbox */
 
+/* Simple Textbox */
+
+.Simple-Textbox {
+    display: flex;
+    border-radius: 4rem;
+    overflow: hidden;
+    background-color: #efefef;
+}
+
+.Simple-Textbox > input {
+    flex-grow: 1;
+    appearance: none;
+    outline: none;
+    border: none;
+    padding: 0 1rem;
+    font-size: 1rem;
+    background-color: #f3f3f3;
+    margin: .6rem .2rem;
+}
+
 /* Burger Textbox */
 
 .Solid-Textbox-Red {

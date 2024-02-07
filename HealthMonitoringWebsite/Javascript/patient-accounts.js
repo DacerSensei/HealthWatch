@@ -5,12 +5,14 @@ import {
     getAuth, createUserWithEmailAndPassword, signOut
 } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
 import {
-    getDatabase, ref, set, onValue, get, child
+    getDatabase, ref, set, onValue, get, child, push
 } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
 import { Database, GetElementValue, FirebaseConfig, PatientAccount, IsNullOrEmpty, SetContentById } from "./main.js";
 
 const SecondaryApp = initializeApp(FirebaseConfig, "SecondaryApp");
 const SecondaryAuth = getAuth(SecondaryApp);
+
+let hiddenKey = null;
 
 const searchTextBoxElement = document.getElementById("ContentSearch");
 const searchButtonElement = document.getElementById("SearchButton");
@@ -206,7 +208,42 @@ table.addEventListener("click", async (event) => {
 
         const hiddenInput = row.querySelector("input[type='hidden']");
         const id = hiddenInput.value;
+        hiddenKey = id;
+        ShowLoading();
+        document.querySelector("#Chat-Modal .modal-body> :nth-child(1)").innerHTML = "";
+        try {
+            await get(child(ref(Database), 'users/' + id + '/Messages')).then(async (messageSnapshot) => {
+                const data = messageSnapshot.val();
+                for (const [keys, values] of Object.entries(data)) {
+                    CreateMessages(document.querySelector("#Chat-Modal .modal-body> :nth-child(1)"), values)
+                }
+            }).catch((error) => {
+                console.log(error);
+            });
+        } catch (error) {
+            console.log(error);
+        }
+        HideLoading();
     }
+});
+
+document.getElementById("message-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const message = GetElementValue("message-box") ?? "";
+    if (message == "") {
+        return;
+    }
+    ShowLoading();
+    const date = new Date();
+    const data = {
+        'CreatedDate': new Intl.DateTimeFormat('en-PH', { month: 'long', day: 'numeric', year: 'numeric' }).format(date),
+        'CreatedTime': new Intl.DateTimeFormat('en-PH', { hour: 'numeric', minute: 'numeric', hour12: true }).format(date),
+        'Message': message
+    }
+    await push(ref(Database, "users/" + hiddenKey + '/Messages'), data);
+    document.getElementById("message-form").reset();
+    CreateMessages(document.querySelector("#Chat-Modal .modal-body> :nth-child(1)"), data)
+    HideLoading();
 });
 
 function CreateGoals(root, goalItems, classNameContainer) {
@@ -237,4 +274,21 @@ function CreateGoals(root, goalItems, classNameContainer) {
 
     // Append the fitness goal container to the body
     root.appendChild(fitnessGoalContainer);
+}
+
+function CreateMessages(root, data) {
+    const outerDiv = document.createElement('div');
+
+    const span = document.createElement('span');
+    span.textContent = data.CreatedDate + " " + data.CreatedTime;
+
+    const paragraph = document.createElement('p');
+    paragraph.textContent = data.Message;
+
+    // Append the span and paragraph elements to the outer div
+    outerDiv.appendChild(span);
+    outerDiv.appendChild(paragraph);
+
+    // Append the outer div to the document body or any other desired element
+    root.appendChild(outerDiv);
 }

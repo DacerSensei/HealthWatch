@@ -99,3 +99,57 @@
     grid-template-columns: 1fr 1fr;
     gap: .2rem;
 }
+
+/* ////////////////////////////// */
+
+#Chat-Modal .modal-body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
+}
+
+#Chat-Modal .modal-body> :nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    row-gap: .6rem;
+    margin: 1rem;
+}
+
+#Chat-Modal .modal-body> :nth-child(1)> div {
+    font-size: 1rem;
+    background-color: #00b950;
+    color: white;
+    margin: .2rem 0;
+    border-radius: .6rem;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+#Chat-Modal .modal-body> :nth-child(1)> div > span {
+    padding: .6rem .6rem 0rem .6rem;
+}
+
+#Chat-Modal .modal-body> :nth-child(1)> div > p {
+    padding: 0 .6rem .6rem .6rem;
+}
+
+#Chat-Modal .modal-body> :nth-child(2) {
+    position: sticky;
+    width: 100%;
+    background-color:white;
+    bottom: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: 1fr auto;
+}
+
+#Chat-Modal .modal-body> :nth-child(2) > input[type="image"] {
+    height: 1.8rem;
+    width: 1.8rem;
+    align-self: center;
+}
