@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthMonitoring.Views.ChatView"
+             Background="White"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:local="clr-namespace:HealthMonitoring"
+             xmlns:ViewModel="clr-namespace:HealthMonitoring.ViewModels"
+             xmlns:UserManager="clr-namespace:HealthMonitoring.Services"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <ViewModel:ChatViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior EventName="Appearing" Command="{Binding LoadedCommand}" />
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label FontFamily="PoppinsBold" Text="Chats" TextColor="Black" FontSize="Title" Margin="10" HorizontalTextAlignment="Center" />
+            <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}" Margin="0,0,0,20">
+                <CollectionView ItemsSource="{Binding MessagesList}" ItemsUpdatingScrollMode="KeepLastItemInView">
+                    <CollectionView.EmptyView>
+                        <Label FontFamily="PoppinsRegular" Text="No Messages" TextColor="Black" FontSize="Subtitle" Margin="10" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame Margin="10,4" HorizontalOptions="Start" BackgroundColor="#00b950" Padding="14,14" CornerRadius="12">
+                                    <StackLayout Spacing="0">
+                                        <Label TextColor="White" FontFamily="PoppinsRegular" FontSize="Small">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="{Binding CreatedDate}" />
+                                                        <Span Text=" " />
+                                                        <Span Text="{Binding CreatedTime}" />
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding Message}" TextColor="White" FontFamily="PoppinsRegular" Margin="0,10,0,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

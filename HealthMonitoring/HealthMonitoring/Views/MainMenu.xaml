@@ -17,6 +17,7 @@
             BarTextColor="Black">
     <!--Pages can be added as references or inline-->
     <local:Dashboard Title="Home" IconImageSource="Home"/>
+    <local:ChatView Title="Messages" IconImageSource="Chat"/>
     <local:PairDevice Title="Smartwatch" IconImageSource="Smartwatch"/>
     <local:Profile Title="User" IconImageSource="User"/>
     <local:Settings Title="Settings" IconImageSource="Settings"/>
